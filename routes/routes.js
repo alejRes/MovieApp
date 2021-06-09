@@ -15,7 +15,7 @@ router.post('/logout', user.logout)
 
 router.post('/login', admin.login)
 router.post('/createMovie', admin.createMovie)
-//router.get('/movies', admin.movies)
+//router.get('/movies', isAdmin, admin.getMovie)
 router.put('/editMovie/:id', admin.editMovie)
 router.delete('/removeMovie', admin.removeMovie)
 

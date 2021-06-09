@@ -37,24 +37,29 @@ const filmSchema = new Schema({
         }
     },
     Runtime: {
-
+        type: Number,
+        required: true
     },
     Director: {
-
+        type: String,
+        required: true
     },
     imbRating: {
-
+        type: Number,
+        
     },
     Actors:{
+        type: String
 
     },
     Country:{
-        
+        type: String
     },
     Language:{
-
+        type: String
     },
     Awards:{
+        type: String
 
     },
     registerDate: {

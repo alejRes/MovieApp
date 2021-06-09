@@ -10,7 +10,7 @@ html(lang="en")
         main
             div 
                 h2 ¿Buscas una película?
-                input#boton(type='submit' name='boton', value="Buscar película")
+                a(href='/search')(type='button', value='Buscar películas')
             div 
-                h2 Guarda tus películas favoritas
-                input#boton(type='submit' name='boton', value="Guardar película")
+                h2 Mira tus películas favoritas
+                a(href='/movies')(type='button', value='Mis películas favoritas')

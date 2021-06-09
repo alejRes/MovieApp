@@ -1,0 +1,27 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet' href='../public/style.css')
+    title Search title
+  body
+        h1 #{data.Title}
+        main
+            img(src=data.Poster)
+            p Año:
+                div #{data.Year}
+            p Dirección:
+                div #{data.Director}
+            p Género:
+                div #{data.Genre}
+            p Duración:
+                div #{data.Runtime}
+            p Sinopsis:
+                div #{data.Year}
+            p Actores:
+                div #{data.Actors}
+            p Rating:
+                div #{data.Rating}
+            

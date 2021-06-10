@@ -7,21 +7,23 @@ html(lang='en')
     link(rel='stylesheet' href='../public/style.css')
     title Search title
   body
-        h1 #{data.Title}
-        main
+        div
             img(src=data.Poster)
-            p Año:
-                div #{data.Year}
-            p Dirección:
-                div #{data.Director}
-            p Género:
-                div #{data.Genre}
-            p Duración:
-                div #{data.Runtime}
-            p Sinopsis:
-                div #{data.Year}
-            p Actores:
-                div #{data.Actors}
-            p Rating:
-                div #{data.Rating}
+        section
+              p Año:
+                span #{data.Year}
+              p Género:
+                span #{data.Genre}
+              p Duración:
+                span #{data.Runtime}
+        h1 #{data.Title}
+        section  
+              p Dirección:
+                span #{data.Director}
+              p Sinopsis:
+                span #{data.Year}
+              p Actores:
+                span #{data.Actors}
+              p Rating:
+                span #{data.Rating}
             

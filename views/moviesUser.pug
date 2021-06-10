@@ -7,11 +7,16 @@ html(lang='en')
     link(rel='stylesheet' href='../public/style.css')
     title Movies
   body
-        div
-        p #{data.Title}
-            div
-                img(src=data.Poster)
-        p #{data.Year}
-        p #{data.Director}
-        p #{data.Genre}
-        p #{data.Runtime}
+       div
+            img(src=data.Poster)
+        section
+              p Año:
+                span #{data.Year}
+              p Género:
+                span #{data.Genre}
+              p Duración:
+                span #{data.Runtime}
+        h1 #{data.Title}
+        section  
+              p Dirección:
+                span #{data.Director}

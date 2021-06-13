@@ -6,14 +6,14 @@ html(lang="en")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title Document
     body 
-        button#btCrear Crear pelicula nueva
-            a(href="/createMovie") 
+        button#btCrear 
+            a(href="/createMovie") Crear pelicula nueva
         if(data)    
             ul
                 each val, index in data
                     div
-                        li= key + ': ' + val
-                        img#edit[index](src="./images/edit.png", alt="edit")
-                        img#delete[index](src="./images/delete.png", alt="edit")
+                        li= key + ': ' + val.Title
+                        img#edit(src="./images/edit.png", alt="edit")
+                        img#delete(src="./images/delete.png", alt="edit")
         else    
             p Datos no encontrados

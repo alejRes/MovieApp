@@ -13,8 +13,8 @@ router.post('/signup', user.signup)
 router.post('/login', user.login)
 router.post('/logout', user.logout)
 
-router.post('/login', admin.login)
-router.post('/createMovie', admin.createMovie)*/ 
+router.post('/login', admin.login)*/ 
+router.post('/createMovie', admin.createMovie)
 router.get('/movies', admin.getMovie)
 router.get('/createMovie', admin.getCreateMovie)
 /* router.put('/editMovie/:id', admin.editMovie)

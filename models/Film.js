@@ -3,15 +3,20 @@ const Schema = mongoose.Schema;
 
 const filmSchema = new Schema({
 
-    id: {
+   /*  id: {
         type:Number,
         required: true,
         unique: true
-    },
+        
+    }, */
     Title: {
         type: String,
         required: true,
         unique: true
+    },
+    Released: {
+        type: String
+         
     },
     Year: {
         type: Number,
@@ -46,10 +51,12 @@ const filmSchema = new Schema({
     },
     imbRating: {
         type: Number,
+        default: null
         
     },
     Actors:{
-        type: String
+        type: String,
+        default: null
 
     },
     Country:{
@@ -68,6 +75,7 @@ const filmSchema = new Schema({
         default: new Date()
     }
 });
+
 
 const Film = mongoose.model("Film", filmSchema);
 module.exports = Film;

@@ -9,7 +9,7 @@ html(lang='en')
   body
     main
         
-        form#form(method='POST', action='/searchquery')
+        form#form(method='POST', action='/searchQuery')
           input#searchText(type='text', name='filmSearch', placeholder='Busca tu película')
           input#searchButton(type='submit', name='searchButton', value="Buscar")
           
@@ -17,5 +17,20 @@ html(lang='en')
           //input(type="text" name="titulo", id="title")
 
           //input(type="submit", value="Busca tu película")
-
-  //script(src="../public/js/search.js")
+  
+    div
+        each val in completeFilms
+          main
+          div(id=val.imdbID)
+              img(src=val.Poster)
+          section#cardItems
+                p Año: 
+                  span #{val.Year}
+                p Género: 
+                  span #{val.Genre}
+                p Duración: 
+                  span #{val.Runtime}
+          h3 #{val.Title}
+          section  
+                p Dirección: 
+                  span #{val.Director}

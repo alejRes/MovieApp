@@ -1,3 +1,34 @@
-*{
-    background-color:#888;
+
+#form{
+    display: flex;
+    justify-content: center;
 }
+#card{
+    padding: 20px;
+}
+#cardItems{
+    display: flex;
+    justify-content: space-between;
+}
+/* MEDIA QUERYS -> RESPONSIVE */
+
+
+/* Smartphones */
+
+@media (min-width:320px) {}
+
+@media (min-width:481px) {}
+
+
+/* Tablets */
+
+@media (min-width:641px) {}
+
+
+/* Laptops y high screens */
+
+@media (min-width:961px) {}
+
+@media (min-width:1025px) {}
+
+@media (min-width:1281px) {}

@@ -9,7 +9,7 @@ const user = require ("../controllers/user")
 // router.get('/dashboard', user.dashboard)
 router.get('/search', user.search)
 router.post('/searchquery', user.searchQuery)
-//router.get('/search/:title', user.searchTitle)
+router.get('/search/:title', user.searchTitle)
 // router.get('/movies', user.movies)
 
 // router.post('/signup', user.signup)

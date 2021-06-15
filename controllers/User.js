@@ -8,17 +8,6 @@ const user = {
   searchQuery: async (req, res) => {
     const filmToSearch = req.body.filmSearch;
     
-    /* const requestOptions = {
-        method: 'GET',
-        redirect: 'follow'
-      }; */
-      /* fetch(`http://www.omdbapi.com/?apikey=b41b321e&s=${filmToSearch}`)
-        .then(response => response.json())
-        .then(data => {
-            console.log(data)
-            res.status(200).render("searchData",{data})
-        })
-        .catch(error => console.log('error', error));  */
     let rsp = await fetch(`http://www.omdbapi.com/?apikey=b41b321e&s=${filmToSearch}&type=movie`)
     let data = await rsp.json()
     let arrayFilms= data.Search
@@ -30,18 +19,42 @@ const user = {
       
     }
     console.log(completeFilms)
-    // let completeFilms = arrayFilms.map(async element => {
-    //   let rsp = await fetch(`http://www.omdbapi.com/?apikey=b41b321e&i=${element.imdbID}`)
-    //   let data = await rsp.json()
-    //   return data
-    // });
-    // console.log (completeFilms)
     res.status(200).render('searchData', {completeFilms})
   },
   
 };
 
 module.exports = user;
+
+// {
+//   Title: 'Cars',
+//   Year: '2006',
+//   Rated: 'G',
+//   Released: '09 Jun 2006',
+//   Runtime: '117 min',
+//   Genre: 'Animation, Comedy, Family, Sport',
+//   Director: 'John Lasseter, Joe Ranft(co-director)',
+//   Writer: 'John Lasseter (original story by), Joe Ranft (original story by), Jorgen Klubien (original story by), Dan Fogelman (screenplay by), John Lasseter (screenplay by), Joe Ranft (screenplay by), Kiel Murray (screenplay by), Phil Lorin (screenplay by), Jorgen Klubien (screenplay by)',
+//   Actors: 'Owen Wilson, Paul Newman, Bonnie Hunt, Larry the Cable Guy',
+//   Plot: 'A hot-shot race-car named Lightning McQueen gets waylaid in Radiator Springs, where he finds the true meaning of friendship and family.',
+//   Language: 'English, Italian, Japanese, Yiddish',
+//   Country: 'USA',
+//   Awards: 'Nominated for 2 Oscars. Another 28 wins & 32 nominations.',
+//   Poster: 'https://m.media-amazon.com/images/M/MV5BMTg5NzY0MzA2MV5BMl5BanBnXkFtZTYwNDc3NTc2._V1_SX300.jpg',
+//   Ratings: [ [Object], [Object], [Object] ],
+//   Metascore: '73',
+//   imdbRating: '7.1',
+//   imdbVotes: '376,437',
+//   imdbID: 'tt0317219',
+//   Type: 'movie',
+//   DVD: '01 Feb 2016',
+//   BoxOffice: '$244,082,982',
+//   Production: 'Walt Disney Pictures, Pixar Animation Studios',
+//   Website: 'N/A',
+//   Response: 'True'
+// },
+
+
 // {
 //   Title: 'Avatar',
 //   Year: '2009',

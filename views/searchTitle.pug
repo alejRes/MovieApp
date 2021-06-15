@@ -8,22 +8,40 @@ html(lang='en')
     title Search title
   body
         div
-            img(src=data.Poster)
-        section
-              p Año:
-                span #{data.Year}
-              p Género:
-                span #{data.Genre}
-              p Duración:
-                span #{data.Runtime}
-        h1 #{data.Title}
-        section  
-              p Dirección:
-                span #{data.Director}
-              p Sinopsis:
-                span #{data.Year}
-              p Actores:
-                span #{data.Actors}
-              p Rating:
-                span #{data.Rating}
+        each val in completeFilms
+          main
+          div(id=val.imdbID)
+              img(src=val.Poster)
+          section#cardItems
+                p Año: 
+                  span #{val.Year}
+                p Género: 
+                  span #{val.Genre}
+                p Duración: 
+                  span #{val.Runtime}
+          h3 #{val.Title}
+          section  
+                p Dirección: 
+                  span #{val.Director}
+        
+        
+        //- div
+        //-     img(src=data.Poster)
+        //- section
+        //-       p Año:
+        //-         span #{data.Year}
+        //-       p Género:
+        //-         span #{data.Genre}
+        //-       p Duración:
+        //-         span #{data.Runtime}
+        //- h1 #{data.Title}
+        //- section  
+        //-       p Dirección:
+        //-         span #{data.Director}
+        //-       p Sinopsis:
+        //-         span #{data.Year}
+        //-       p Actores:
+        //-         span #{data.Actors}
+        //-       p Rating:
+        //-         span #{data.Rating}
             

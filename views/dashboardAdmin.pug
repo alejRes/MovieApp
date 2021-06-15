@@ -8,12 +8,14 @@ html(lang="en")
     body 
         button#btCrear 
             a(href="/createMovie") Crear pelicula nueva
-        if(data)    
+        if(data)   
             ul
                 each val, index in data
                     div
-                        li= key + ': ' + val.Title
-                        img#edit(src="./images/edit.png", alt="edit")
-                        img#delete(src="./images/delete.png", alt="edit")
+                        li= val.Title
+                        a(href=`/updateMovie/:${val.id}`)
+                            img(id=`edit${index}`, src="./public/images/edit.png", alt="edit")
+                        a(href=`/removeMovie/:${val.Title}`)
+                            img#delete(src="./public/images/delete.png", alt="delete")
         else    
             p Datos no encontrados

@@ -13,12 +13,15 @@ router.post('/signup', user.signup)
 router.post('/login', user.login)
 router.post('/logout', user.logout)
 
-router.post('/login', admin.login)*/ 
+*/ 
+
 router.post('/createMovie', admin.createMovie)
 router.get('/movies', admin.getMovie)
+router.get('/films',admin.getListMovies)
 router.get('/createMovie', admin.getCreateMovie)
-/* router.put('/editMovie/:id', admin.editMovie)
-router.delete('/removeMovie', admin.removeMovie) */
+router.get('/editMovie/:id', admin.getUpdMovie)
+/* router.put('/editMovie/:id', admin.editMovie)*/
+router.delete('/removeMovie/:title', admin.deleteMovie) 
 
 // router.get('*', user.home)
 

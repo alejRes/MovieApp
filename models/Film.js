@@ -43,20 +43,20 @@ const filmSchema = new Schema({
     },
     Runtime: {
         type: Number,
-        required: true
+        // required: true
     },
     Director: {
         type: String,
-        required: true
+        // required: true
     },
-    imbRating: {
+    imdbRating: {
         type: Number,
-        default: null
+        default: 0
         
     },
     Actors:{
         type: String,
-        default: null
+        default: 'N/A'
 
     },
     Country:{

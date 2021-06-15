@@ -1,7 +1,9 @@
 const port = process.env.PORT || 3000;
 const express = require('express');
 const app = express();
-const authRoutes = require('../routes/Auth')
+const authRoutes = require('./routes/Auth')
+const cookieSession = require('cookie-session')
+const passport = require("passport");
 
 
 
@@ -31,6 +33,24 @@ function isAdmin(req, res, next) {
 app.set('view engine','pug')
 app.set('views','./views')
 
+//PARA UTILIZAR LA SESSION DE COOKIES
+
+app.use(cookieSession({
+  // milliseconds of a day
+  maxAge: 24*60*60*1000,
+  keys:[process.env.COOKIEKEY]
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+//PARA CERRAR SESSION 
+
+app.get("/auth/logout", (req, res) => {
+  req.logout();
+  res.send(req.user);
+});
 
 
 

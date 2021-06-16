@@ -4,18 +4,19 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title Document
+        title Pagina inicio
     body 
         button#btCrear 
             a(href="/createMovie") Crear pelicula nueva
         if(data)   
-            ul
+            ul#listfims
                 each val, index in data
                     div
-                        li= val.Title
-                        a(href=`/updateMovie/:${val.id}`)
+                        li=val.Title
+                        a(href=`/editMovie/${val.id}`)
                             img(id=`edit${index}`, src="./public/images/edit.png", alt="edit")
-                        a(href=`/removeMovie/:${val.Title}`)
+                        a(href=`/removeMovie/${val.Title}`)
                             img#delete(src="./public/images/delete.png", alt="delete")
         else    
             p Datos no encontrados
+        script(src='../public/script/initAdmin.js' type='module')

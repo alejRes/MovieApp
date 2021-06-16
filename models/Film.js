@@ -1,5 +1,9 @@
 const mongoose = require("mongoose");
+const autoIncrement = require('mongoose-auto-increment')
 const Schema = mongoose.Schema;
+
+// let connection = mongoose.createConnection(process.env.DATABASE_URL)
+autoIncrement.initialize(mongoose.connection)
 
 const filmSchema = new Schema({
 
@@ -76,8 +80,10 @@ const filmSchema = new Schema({
     }
 });
 
+filmSchema.plugin(autoIncrement.plugin, { model: 'Film', field: 'filmId' })
 
 const Film = mongoose.model("Film", filmSchema);
+
 module.exports = Film;
 
 

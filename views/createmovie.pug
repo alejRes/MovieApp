@@ -5,10 +5,12 @@ html(lang="en")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title Crear película
-    body 
-        form#CrUpFilm(action="", method="")    
+    body
+        section#popup
+
+        form#CrUpFilm(action="/createMovie", method="POST")    
             if data
-                input(type="text" name='Title' placeholder='Titulo' value= data.Title)
+                input(type="text" name='Title' placeholder='Titulo')
                 input(type="text" name='Year'  placeholder='Año')
                 input(type="text" name='Released' placeholder='Estreno')
                 textarea(name='Plot', cols="50", rows="10" maxlength="200" placeholder='Sinopsis') 
@@ -24,7 +26,7 @@ html(lang="en")
                 
                 button#btnSU(type="button" value="update") Actualizar
             else 
-                input(type="text" name='Title' placeholder ='Titulo') 
+                input(type="text" name='Title' placeholder ='Titulo' ) 
                 input(type="text" name='Year'  placeholder='Año')
                 input(type="text" name='Released' placeholder='Estreno')
                 textarea(name='Plot', cols="50", rows="10" maxlength="200" placeholder='Sinopsis') 
@@ -37,7 +39,5 @@ html(lang="en")
                 input(type="text" name='Country' placeholder='País')
                 input(type="text" name='Languaje' placeholder='Idioma')
                 input(type="text" name='Awards' placeholder='Premios y nominaciones')
-                
-                button#btnSU(type="button" value="save") Guardar   
-
-    script(src="../public/scripts/scriptAdmin.js") 
+                input(type="submit" value="Guardar")
+        script(src="../public/scripts/scriptAdmin.js" type='module') 

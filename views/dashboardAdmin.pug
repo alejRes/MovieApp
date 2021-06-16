@@ -9,14 +9,8 @@ html(lang="en")
         button#btCrear 
             a(href="/createMovie") Crear pelicula nueva
         if(data)   
-            ul#listfims
-                each val, index in data
-                    div
-                        li=val.Title
-                        a(href=`/editMovie/${val.id}`)
-                            img(id=`edit${index}`, src="./public/images/edit.png", alt="edit")
-                        a(href=`/removeMovie/${val.Title}`)
-                            img#delete(src="./public/images/delete.png", alt="delete")
+            ul#listfilms
+                
         else    
             p Datos no encontrados
-        script(src='../public/script/initAdmin.js' type='module')
+        script(src="../public/scripts/initAdmin.js" type='module') 

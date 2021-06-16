@@ -1,7 +1,7 @@
-//const fetchtoMongo =require('../../utils/dataDBmong.js')
-import postUpdateFilm from './dataDBmong.js'
+import {postUpdateFilm} from './utilsAdmin.js'
+
 document.getElementById('btnSU').addEventListener('click', async(e)=>{
-    console.log('boton pulsado')
+    
     e.preventDefault()
     let id = window.location.pathname.split("/")[2]
     let btnvalue;

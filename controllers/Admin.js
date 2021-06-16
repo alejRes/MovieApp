@@ -24,10 +24,10 @@ const admin = {
                 film.save((err, data) => {
                     if (err) {
                         console.log(data)
-                        res.status(400).json(/* 'createMovie', */{ message: `La película ya existe ${err.message}`, popup: false })
+                        res.status(400).json({ message: `La película ya existe ${err.message}`, popup: false })
                     } else {
                         console.log(data)
-                        res.status(200).json(/* 'createMovie', */{ message: `Pelicula guardada correctamente`, popup: true, data })
+                        res.status(200).json({ message: `Pelicula guardada correctamente`, popup: true, data })
                     }
                 })
             } catch (error) {
@@ -35,7 +35,7 @@ const admin = {
             }
         } else
             res.status(400).json({ message: `La pelicula ya existe` })
-        console.log(`filmOmd: ${filmOmd.Response}`)
+       
     },
 
     //Funcion que se utiliza para borrar la pelicula seleccionada titulo
@@ -55,7 +55,7 @@ const admin = {
         try {
             let data = await Film.findOne({_id:`${id}`})//cambiar por id autoincremento!!!!!!!
             
-            res.status(200).render('createmovie',{data})
+            res.status(200).render('createmovie')
         } catch (error) {
             res.status(404).json({ message: `pagina no encontrada ${error.message}` })
         }
@@ -65,10 +65,7 @@ const admin = {
     getListMovies: async (req, res) => {
         let status;
         let data;
-        //let role;//Extraera la informacion de la cookie
-        /* if (role == "user") {
-
-        } else { */
+        
         try {
             data = await Film.find()
             status = 200;
@@ -76,7 +73,7 @@ const admin = {
             status = 500;
             data = err.mesagge
         } finally {
-            console.log(data)
+
             res.status(status).json(data)
         }
     },

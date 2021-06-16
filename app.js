@@ -47,7 +47,7 @@ app.use(passport.session());
 
 //PARA CERRAR SESSION 
 
-app.get("/auth/logout", (req, res) => {
+app.get("/controllers/googleAuth", (req, res) => {
   req.logout();
   res.send(req.user);
 });

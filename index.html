@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Página de login con firebase</h1>
+    <p>Este es el login con google desde Firebase</p>
+
+    <div id="loginScreen">
+
+        <button id="login">Login with Google</button>
+
+        
+    </div>
+
+    <div id="dashboard">
+        <div id="userDetails"></div>
+        <button id="logout">Logout</button>
+
+
+    </div>
+
+
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-auth.js"></script>
+    <script src="middlewares/firebase.js"></script>
+
+
+<!--     <script>
+    const firebaseConfig = {
+        apiKey: "AIzaSyB18s9gyTraea33ugCWbhXiIBPQHWpB7CQ",
+        authDomain: "movieapp-7a7d5.firebaseapp.com",
+        projectId: "movieapp-7a7d5",
+        storageBucket: "movieapp-7a7d5.appspot.com",
+        messagingSenderId: "483728030374",
+        appId: "1:483728030374:web:0f26c5842e4111bd9d1267"
+      }
+
+      //Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+
+document.getElementById('login').addEventListener('click',GoogleLogin);
+document.getElementById('logout').addEventListener('click',LogOutUser);
+
+let provider = new firebase.auth.GoogleAuthProvider()
+
+function GoogleLogin(){
+    console.log('Login Btn')
+    firebase.auth().signInWithPopup(provider).then(res => {
+        console.log(res.user)
+        document.getElementById('loginScreen').style.display="none";
+        document.getElementById('dashboard').style.display="block";
+
+    }).catch(e => {
+        console.log(e)
+    })
+}
+
+function showUserDateils(user){
+    document.getElementById('userDetails').innerHTML = `
+    <img src="${user.photoURL}" style="width:10%">
+    <p>Name: ${user.displayName}</p>
+    <p>Email: ${user.email}</p>`
+}
+
+function checkAuthState(){
+    firebase.auth().onAuthStateChanged(user => {
+        if(user){
+            document.getElementById('loginScreen').style.display="none";
+            document.getElementById('dashboard').style.display="block";
+            showUserDateils(user)
+        }else{
+
+
+        }
+    })
+
+}
+
+function LogOutUser(){
+    console.log('Logout Btn')
+    firebase.auth().signOut().then(() => {
+        document.getElementById('loginScreen').style.display="none";
+        document.getElementById('dashboard').style.display="block";
+    }).catch(e => {
+        console.log(e)
+    })
+
+}
+checkAuthState()
+      </script> -->
+    
+</body>
+</html>

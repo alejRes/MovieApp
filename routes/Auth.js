@@ -1,13 +1,15 @@
 const { Router } = require('express');
-const authController = require('../controllers/Auth');
+const isAuth = require('../middlewares/Auth');
+
+
 
 
 const router = Router();
 
-router.get('/signup',authController.signup_get);
-router.post('/signup',authController.signup_post);
-router.get('/login',authController.login_get);
-router.post('/login',authController.login_post);
+router.get('/signup',isAuth.signup_get);
+router.post('/signup',isAuth.signup_post);
+router.get('/login',isAuth.login_get);
+router.post('/login',isAuth.login_post);
 
 
 

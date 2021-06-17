@@ -8,22 +8,22 @@ html(lang="en")
     body
         section#popup
 
-        form#CrUpFilm(action="/createMovie", method="POST")    
+        form#CrUpFilm(action="/apiAdmin/createMovie", method="POST")    
             if data
-                input(type="text" name='Title' placeholder='Titulo')
-                input(type="text" name='Year'  placeholder='Año')
-                input(type="text" name='Released' placeholder='Estreno')
-                textarea(name='Plot', cols="50", rows="10" maxlength="200" placeholder='Sinopsis') 
-                input(type="text" name='Genre' placeholder='Genero')
-                input(type="text" name='Poster' placeholder='Url htpps://imagen')
-                input(type="text" name='Runtime' placeholder='Duración')
-                input(type="text" name='Director' placeholder='Director')
-                input(type="text" name='imdbRating' placeholder='Rating')
-                input(type="text" name='Actors' placeholder='Actores')
-                input(type="text" name='Country' placeholder='País')
-                input(type="text" name='Languaje' placeholder='Idioma')
-                input(type="text" name='Awards' placeholder='Premios y nominaciones')
-                
+                input(type="text" name='Title' placeholder='Titulo' value = data.Title)
+                input(type="number" name='Year'  placeholder='Año' value = data.Year)
+                input(type="text" name='Released' placeholder='Estreno' value = data.Released)
+                textarea(name='Plot', cols="50", rows="10" maxlength="200" placeholder='Sinopsis')=data.Plot
+                input(type="text" name='Genre' placeholder='Genero' value = data.Genre)
+                input(type="url" name='Poster' placeholder='Url htpps://imagen' value = data.Poster)
+                input(type="number" name='Runtime' placeholder='Duración' value = data.Runtime)
+                input(type="text" name='Director' placeholder='Director' value = data.Director)
+                input(type="num" name='imdbRating' placeholder='Rating' value = data.imdbRating)
+                input(type="text" name='Actors' placeholder='Actores' value = data.Actors)
+                input(type="text" name='Country' placeholder='País' value = data.Country)
+                input(type="text" name='Languaje' placeholder='Idioma' value = data.Language)
+                input(type="text" name='Awards' placeholder='Premios y nominaciones' value = data.Awards)
+              
                 button#btnSU(type="button" value="update") Actualizar
             else 
                 input(type="text" name='Title' placeholder ='Titulo' ) 
@@ -39,6 +39,7 @@ html(lang="en")
                 input(type="text" name='Country' placeholder='País')
                 input(type="text" name='Languaje' placeholder='Idioma')
                 input(type="text" name='Awards' placeholder='Premios y nominaciones')
-                button#btnSU(type="button" value="save") Guardar
-                //- input(type="submit" value="Guardar")
+                //- button#btnSU(type="button" value="save") Guardar
+                input(type="submit" value="Guardar")
+               
         script(src="../public/scripts/scriptAdmin.js" type='module') 

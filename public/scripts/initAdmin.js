@@ -1,13 +1,11 @@
-import  {getMoviesList, paintList}  from "./utilsAdmin.js"
+import  {getMoviesList, paintList}  from "./utils/utilsAdmin.js"
 
-const init = async ()=>{
+ (async function init (){
 
     const pelis = await getMoviesList()
-    pelis.forEach(element => {
-        console.log(element)
-        paintList(element)
+    pelis.forEach(element => {       
+         paintList(element)
     });
     
-}
+})()
 
-init()

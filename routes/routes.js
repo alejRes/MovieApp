@@ -16,13 +16,11 @@ router.post('/logout', user.logout)
 */ 
 
 router.get('/movies', admin.getMovie)
-router.get('/films',admin.getListMovies)
+
 router.get('/createMovie', admin.getCreateMovie)
-router.get('/createList', admin.getListMovies)
+
 router.get('/editMovie/:id', admin.getUpdMovie)
-router.post('/createMovie', admin.postCreateMovie)
-router.put('/editMovie/:id', admin.editMovie)
-router.delete('/removeMovie/:title', admin.deleteMovie) 
+
 
 // router.get('*', user.home)
 

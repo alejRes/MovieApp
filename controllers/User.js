@@ -21,8 +21,23 @@ const user = {
     console.log(completeFilms)
     res.status(200).render('searchData', {completeFilms})
   },
-  
-};
+  searchTitle: async (req,res) =>{
+    
+    let titulo= req.params.title;
+    let response = await fetch(`http://www.omdbapi.com/?apikey=b41b321e&t=${titulo}`);
+    let film = await response.json()
+    console.log(film);
+    res.status(200).render('searchTitle',{film});
+
+},
+//   searchTitle: async(filmToSearch) =>{
+//     const response = await fetch(`http://www.omdbapi.com/?apikey=b41b321e&s=${filmToSearch}&type=movie`);
+//     const result = await response.json()
+//     console.log(result)
+//     return result
+// }
+
+  }
 
 module.exports = user;
 

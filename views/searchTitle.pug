@@ -7,22 +7,24 @@ html(lang='en')
     link(rel='stylesheet' href='../public/style.css')
     title Search title
   body
+  
         div
-        each val in completeFilms
+       
           main
-          div(id=val.imdbID)
-              img(src=val.Poster)
+          div(id=film.imdbID)
+              img(src=film.Poster)
           section#cardItems
                 p Año: 
-                  span #{val.Year}
+                  span=film.Year
                 p Género: 
-                  span #{val.Genre}
+                  span=film.Genre
                 p Duración: 
-                  span #{val.Runtime}
-          h3 #{val.Title}
+                  span=film.Runtime
+          h3=film.Title
           section  
                 p Dirección: 
-                  span #{val.Director}
+                  span=film.Director
+
         
         
         //- div

@@ -1,0 +1,33 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet' href='../public/style.css')
+    title Busca pelis
+  body
+    include header.pug
+    main
+      form#form(method='POST', action='/search')
+        input#searchText(type='text', name='filmSearch', placeholder='Busca tu película')
+        input#searchButton(type='submit', name='searchButton', value="Buscar")
+
+      if completeFilms
+        div
+          each val in completeFilms
+            div(id=val.imdbID)
+              img.normal#imgHeart(src='../public/images/heartEmpty.svg')
+              img(src=val.Poster)
+              section#cardItems
+                p Año: 
+                  span #{val.Year}
+                p Género: 
+                  span #{val.Genre}
+                p Duración: 
+                  span #{val.Runtime}
+              h3 #{val.Title}  
+              p Dirección: 
+                span #{val.Director}
+
+  //script(src="../public/js/search.js")

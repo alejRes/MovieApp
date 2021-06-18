@@ -1,0 +1,90 @@
+
+#form{
+    display: flex;
+    justify-content: center;
+}
+#card{
+    padding: 20px;
+}
+#cardItems{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/*HAMBURGUESA*/
+
+nav#container {
+    margin-top: 5px;
+    position: static;
+    padding: 10px;
+}
+nav ul {
+    display: none;
+}
+nav input:checked~ul {
+    display: block;
+}
+nav input {
+    display: none;
+}
+nav label {
+    box-sizing: border-box;
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 54px;
+    height: 30px;
+    line-height: 30px;
+    font-weight: bold;
+    text-align: center;
+    user-select: none;
+}
+
+nav label:hover {
+    background: blue;
+}
+
+
+/* Estilo del boton cuando el menú está expandido*/
+
+nav input:checked~label {
+    background: grey;
+}
+nav ul {
+    margin-top: 0;
+    padding: 0;
+    width: 95%;
+}
+nav li {
+    display: block;
+    background: grey;
+    margin-right: -21px;
+    padding: 10px;
+    list-style: none;
+    border-bottom: 1px solid black;
+    text-align: center;
+}
+
+/* MEDIA QUERYS -> RESPONSIVE */
+
+
+/* Smartphones */
+
+@media (min-width:320px) {}
+
+@media (min-width:481px) {}
+
+
+/* Tablets */
+
+@media (min-width:641px) {}
+
+
+/* Laptops y high screens */
+
+@media (min-width:961px) {}
+
+@media (min-width:1025px) {}
+
+@media (min-width:1281px) {}

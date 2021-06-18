@@ -7,15 +7,27 @@ html(lang='en')
     link(rel='stylesheet' href='../public/style.css')
     title Busca pelis
   body
+    include header.pug
     main
-        
-        form#form(method='POST', action='/searchquery')
-          input#searchText(type='text', name='filmSearch', placeholder='Busca tu película')
-          input#searchButton(type='submit', name='searchButton', value="Buscar")
-          
-          //label(for="titulo") Introduce título
-          //input(type="text" name="titulo", id="title")
+      form#form(method='POST', action='/search')
+        input#searchText(type='text', name='filmSearch', placeholder='Busca tu película')
+        input#searchButton(type='submit', name='searchButton', value="Buscar")
 
-          //input(type="submit", value="Busca tu película")
+      if completeFilms
+        div
+          each val in completeFilms
+            div(id=val.imdbID)
+              img.normal#imgHeart(src='../public/images/heartEmpty.svg')
+              img(src=val.Poster)
+              section#cardItems
+                p Año: 
+                  span #{val.Year}
+                p Género: 
+                  span #{val.Genre}
+                p Duración: 
+                  span #{val.Runtime}
+              h3 #{val.Title}  
+              p Dirección: 
+                span #{val.Director}
 
   //script(src="../public/js/search.js")

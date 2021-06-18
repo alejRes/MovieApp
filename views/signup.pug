@@ -7,11 +7,8 @@ html(lang='en')
     link(rel='stylesheet' href='../public/style.css')
     title Singup
   body
-        form
-            label(for="usuario") Nombre de usuario
-            input(type="text" name="usuario", id="user")
-            label(for="email") Introduce Email
+        form(method ='POST' action = '/singup')
+            
             input(type="email" name="correo" placeholder="Introduce Email" required)
             input(type="password" name="pass" placeholder="Introduce password")
-
             input(type="submit", value="Sign Up")

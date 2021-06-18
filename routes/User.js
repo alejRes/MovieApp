@@ -6,9 +6,9 @@ const user = require ("../controllers/user")
 //const auth = require ("./controllers/auth")
 
 // router.get('/', user.home)
-// router.get('/dashboard', user.dashboard)
+router.get('/dashboard', user.dashboard)
 router.get('/search', user.search)
-router.post('/searchquery', user.searchQuery)
+router.post('/search', user.searchQuery)
 router.get('/search/:title', user.searchTitle)
 // router.get('/movies', user.movies)
 

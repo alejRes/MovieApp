@@ -1,9 +1,9 @@
 const puppeteer = require("puppeteer");
 
-  const scrapSensa = async(title) => {
+const scrapSensa = async(title) => {
   const browser = await puppeteer.launch({ 
     headless: false,//OJO cambiar a TRUE cuando lo lance
-    slowMo: 40
+    slowMo: 30
   });
   const page = await browser.newPage();
   await page.goto(`https://www.sensacine.com`);
@@ -27,13 +27,13 @@ const puppeteer = require("puppeteer");
   console.log(data);
 };
 
-scrapSensa("avatar")
+// scrapSensa("avatar")
 
 
 const scrapFilmAffinity = async(titulo) => {
   const browser = await puppeteer.launch({
       headless: false,//OJO cambiar a TRUE cuando lo lance
-      slowMo: 40
+      slowMo: 30
   })
   const page = await browser.newPage();
   await page.goto("https://www.filmaffinity.com/");

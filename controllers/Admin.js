@@ -16,7 +16,7 @@ const admin = {
         let id = req.params.id
         
         try {
-            let data = await Film.findOne({_id:`${id}`})//cambiar por id autoincremento!!!!!!!
+            let data = await Film.findOne({filmId:`${id}`})//cambiar por id autoincremento!!!!!!!
             
             res.status(200).render('createmovie',{data})
         } catch (error) {

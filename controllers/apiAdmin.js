@@ -49,19 +49,20 @@ const apiAdmin = {
         const data = req.body
         const id = req.params.id
         try {
-            let result = await Film.findOne({_id:`${id}`})
+            let result = await Film.findOne({idFilm:`${id}`})
         
             if(data.Title.toLowerCase().replace(/ \s+/g, "")==result.Title.toLowerCase().replace(/ \s+/g, "")){
                 await Film.updateOne({_id:`${id}`},{$set: data},(err,data)=>{
                     if (err)
                     {   
                         console.log(err.message)
-                        res.status(401).json({message:`error ${err.message}`}) 
+                        res.status(401).render({message:`error ${err.message}`}) 
                     }
-                    res.status(200).json({message: `actualizado correctamente`, data})
+                    res.status(200).render('createmovie',{message: `actualizado correctamente`, data})
                 })
                  
-            }
+            }else
+                res.status(204).render('createmovie',{message: 'no se puede modificar el titulo'})
            
         } catch (err) {
             

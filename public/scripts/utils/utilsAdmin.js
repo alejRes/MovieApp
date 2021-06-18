@@ -25,15 +25,16 @@ export const getMoviesList = async ()=>{
     return result
     
 }
-export const paintList = ({Title, _id})=>{
-    
+export const paintList = ({Title, filmId})=>{
+    let id = `${filmId}`
+    console.log(id)
     let container = document.getElementById("listfilms")
     let div = document.createElement("div")
     let li = document.createElement("li")
     let txt = document.createTextNode(Title)
     let imgUpdate = document.createElement("img")
     imgUpdate.setAttribute("src","../public/images/edit.png")
-    imgUpdate.setAttribute("id", _id)
+    imgUpdate.setAttribute("id", id)
     let imgDelete = document.createElement("img")
     imgDelete.setAttribute("src","../public/images/delete.png")
     imgDelete.setAttribute("id",Title)

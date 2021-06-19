@@ -1,4 +1,5 @@
 const fetch = require('node-fetch');
+const User = require('../models/User')
 
 
 const user = {

@@ -16,8 +16,11 @@ html(lang='en')
       if completeFilms
         div
           each val in completeFilms
-            div(id=val.imdbID)
-              img.normal#imgHeart(src='../public/images/heartEmpty.svg')
+            div(id=val.Title)
+              if val.imdbID
+                img.normal(id=val.imdbID src='../public/images/heartEmpty.svg' onClick='addFavorite(id)' alt='heartEmpty')
+              else  
+                img.nomral#imgHeart(alt=val.filmid)
               img(src=val.Poster)
               section#cardItems
                 p Año: 
@@ -30,4 +33,4 @@ html(lang='en')
               p Dirección: 
                 span #{val.Director}
 
-  //script(src="../public/js/search.js")
+    script(src="../public/script/scriptUser.js")

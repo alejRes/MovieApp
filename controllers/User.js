@@ -5,7 +5,7 @@ const sql = require('../models/sql')
 
 function signUp (req,res){
     const user = new User({
-        email: req.body.email,
+        email: req.body.username,
         password:req.body.password
     })
     user.save((err) => {
@@ -33,7 +33,7 @@ async function logIn (req,res){
 
 
 function getHome(req,res){
-    console.log("hola !!!!!")
+    //console.log("hola !!!!!")
     res.status(200).render("home");
 }
 

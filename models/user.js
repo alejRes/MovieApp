@@ -7,7 +7,7 @@ const crypto = require('crypto')
 
 
 const UserSchema = new Schema({//campos que tendrá nuestro usuario cuando se registre
-    email: {
+    username: {
         type: String, 
         unique: true, 
         lowercase: true

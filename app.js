@@ -7,7 +7,7 @@ const passport = require("passport");
 const jwt = require("jsonwebtoken")
 const admin = require("firebase-admin");
 const cookieParser = require("cookie-parser");
-const key="-----BEGIN PRIVATE KEY-----\nMIIEuwIBADANBgkqhkiG9w0BAQEFAASCBKUwggShAgEAAoIBAQDX4CdwMaCuGAhU\nbwX6Tsg+2rj7boXbenYbx2oyMEXyVnFLr5Kyr5RUdWQ3uf3k+1MRmWS838/8OWvU\nYw+xPpgF2gLfkp6IqyiPSLvp6b/BD1fXOpWjIi8CbmlfnDU9In1i+3OHSQmYa1VH\n2Vc0sgTnAjEFE5NEksaXx8rEFir5QgDlmwIapWX8x5FnnGN01uZNUquZyup790Hp\n45QYbwJoxzMS42fLKPdH7Iehfmt3vGzRDiq5mb9grXQXk/5ZDK6BROIZKFerxDIY\nFGoJ8FmHmx4qw8denZ9XpytDTh+nfzYpe9BS+52KhUobKK5LLlIkQ5rl/cOJl5mt\nuVUjr/DrAgMBAAECggEAQS6tKdrKThbymPAHCYv1OclYNo8qOtmwxPWDEtFxpVlF\nj1ldvbd3XcMudgciaxwZ+oPrH36i8eEytmgM6nNges/Xs0M1vEWWEyGen+QVIsmr\nt9C4MxBUynKlPZnQl3uNCbCsMwqyK4QpNW8iPkaMZWZLf+Fnw7pf3Z+VkXyyEB24\nMW4xrzA16yL/Cii4t5qSn0naIEpBVtJLvYi5AGGZoUKVhOpU1VnxhV2PC2P7oMcf\nGAkEzkCsDmHhO6oBh5qaBEcXH+iO0vLTD89Opz8kGsTEr+BIDCAxxDsFLTP0nkFk\nOMSUjagCZS2WACAAKUQzU3CF/X1jaujknNdD9GmR7QKBgQD4e5IQPFVGSGC0wNVL\n08qPfoDGLvmELGiC3GNj2ZA27SHxk97FT7DEk31EXA4PgeXL8P0lr2gaAZQMUbSo\nMWtUM1C0swTirVcPMcmvue+fFlO49xaOM/jXiMeGX2YaYCg1v5P4cvGtSUdb+tu5\niJoyu6zxtSgqxtevEHsgteEGXwKBgQDeaAz0Jz03H05jwUgmx8VRz0KVVIKN+wHi\nEYL501g+1flZEtELxCHJzyeRcvNCky3X86HHNHB53upsgdqjUkmnD2WBSafgChSY\nwIzrX+lLkZpnqHHWf64+w1SMe2n+GJRjFk3YiCiFO5HCJQ+z/Q4EwB1Lj3mi+hot\nIDQwGWoo9QKBgGYsSY8rf9T6helNMWeQmsYOOl1Di43xxLeqb6PrHgW31DFFoGB5\nuDHcg7HMOGvf+eG2IiGQ0rl+1KWMI0DVsVBaGWF0Cxo6NIYm7su3JPTBdYOk9j1a\n2YOm1oRGTfGigGY5dFrAyOd8Lj+AE0FjDiS2TxLEbtPIF4AAwuBcaT75AoGBAME5\nkReGB88eKdLNF8xpf2smMGjgtVR5IRexsyMtlNtyt2HF0Uzxp5FXor7hKatLh2a5\nSnJxgs6+9tgysSt30HmODNgYj/s7hs13bHcKKvv2kjlAxTZgU5g/x/MNPfb+j9zO\nge9/zASEzovn+w6a6lUCO/Frw3fu5lMSSYUIb40JAn9C4bUN6+fSiptKFM5Ka2/d\n7yUqffBc7lheF7vqcWGJpD6Xe56jgvSG7vnhkWWiTUMnIdBfDk6XuA4kHq2iC13O\nooDHLDr3MVCrg8n6I9l7z6Kh4er8gMdpkOI2iodaAk485VzxnedTm4AY9hpQfgBH\n3T3iZQbXc3zi7naKeCfZ\n-----END PRIVATE KEY-----\n"
+const key= process.env.PRIVATE_KEY;
 
 
 
@@ -69,7 +69,7 @@ app.listen(port, () => {
 
   admin.initializeApp({
     credential: admin.credential.cert({
-        "private_key": key.replace(/\\n/g, '\n'),
+        "private_key": (process.env.PRIVATE_KEY).replace(/\\n/g, '\n'),
         "client_email": process.env.GOOGLE_CLIENT_EMAIL,
         "project_id": process.env.GOOGLE_ID_PROJECT
     })

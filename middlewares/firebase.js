@@ -45,22 +45,15 @@ function GoogleLogin(){
   })
 }
 
-function showUserDateils(user){
-  document.getElementById('userDetails').innerHTML = `
-  <img src="${user.photoURL}" style="width:10%">
-  <p>Name: ${user.displayName}</p>
-  <p>Email: ${user.email}</p>`
-}
 
 function checkAuthState(){
   firebase.auth().onAuthStateChanged(user => {
       if(user){
           document.getElementById('loginScreen').style.display="none";
           document.getElementById('dashboard').style.display="block";
-          showUserDateils(user)
+          
       }else{
-
-
+        return redirect('/home')
       }
   })
 

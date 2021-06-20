@@ -7,8 +7,9 @@ const moment = require('moment')
 function createToken (user) {
 
     const payload = {
-        sub: user._id,
-        rol: user.rol,
+        sub: user.idUser,
+        email:user.Email,
+        rol: user.Role,
         iat: moment().unix(),//fecha de cuando se creó el token 
         exp: moment().add(14, 'days').unix(),//fecha de cuando expirará el token
     }
@@ -27,7 +28,7 @@ function decodeToken (token) {
                     message: 'El token ha expirado'
                 })
             }
-                resolve(payload.sub)
+                resolve(payload)
         }catch(err){
             reject({
                 status: 500,

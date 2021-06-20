@@ -6,14 +6,24 @@ head
   link(href='https://fonts.googleapis.com/css?family=Open+Sans:300', rel='stylesheet', type='text/css')
   
 body   
-include includes/header.pug
+include header
 .container
-  form.homeForm(action='/', method='post')
+  form.homeForm(action='/login', method='post')
     label(for='user') User
     input.ghost-input(name='username', type='text', placeholder='Usuario', required='')
     label(for='password') Password
     input.ghost-input(name='password', type='password', placeholder='Password', required='')
     input.ghost-button(type='submit', value='login')
     button.ghost-button(value='signup') Signup 
+
+
+
+<script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js">
+
+  
+//Loads the login UI elements-->
+<script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js">
+
+<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
         
         

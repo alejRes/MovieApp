@@ -1,11 +1,11 @@
 
-const User = require('../models/user')
-const service = require('../services/index')
+const User = require('../models/user');
+const service = require('../services/index');
+const sql = require('../models/sql')
 
 function signUp (req,res){
     const user = new User({
         email: req.body.email,
-        displayName: req.body.displayName,//no añadimos el password porque desde mongoose se creaba a partir de los campos por seguridad
         password:req.body.password
     })
     user.save((err) => {
@@ -16,20 +16,41 @@ function signUp (req,res){
 }
 
 
-function logIn (req,res){
-    User.find({email: req.body.email},(err,user) => {
-        if(err) return res.status(500).send({message: `Hubo un error en el servidor: ${err}`})
-        if(!user) return res.status(404).send({message: `No existe el usuario : ${err}`})
+async function logIn (req,res){
+    if(req.body.username && req.body.password ){
+        let result = await sql.getUser(req.body.username)
+        
+        res.cookie("session-cookie", service.createToken(result), {
+          maxAge: 60 * 60 * 24 * 5 * 1000,
+          httpOnly: true,
+        })
+        .status(200)
+        .json({ result });
+    
+    }  
+}
 
-        req.user = user
-        /* res.status(200).send({
-            message: 'Te has logado correctamente',
-            token: service.createToken(user)}) */
-            res.cookie("session:cookie", service.createToken(user),{})
-    })
+
+
+function getHome(req,res){
+    console.log("hola !!!!!")
+    res.status(200).render("home");
+}
+
+function getDashboard(req,res){
+    console.log(res.locals.rol)
+    if (res.locals.rol > 0){
+        res.redirect(302,'/home')
+    }else{
+        res.redirect(400,'/')
+
+    }
+    res.status(200).render("dashboard");
 }
 
 module.exports = {
     signUp,
-    logIn
+    logIn,
+    getHome,
+    getDashboard
 }

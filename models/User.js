@@ -14,8 +14,9 @@ const userRegistrer ={
         let conn, result;
         try {
             conn = await pool.getConnection();
-            let sqlQuery = "SELECT idFilm FROM favoritefilms INNERJOIN users On favoritefilms.UserID = users.UserID WHERE user.email =?"
+            let sqlQuery = "SELECT idFilm FROM favoritefilms INNER JOIN users On favoritefilms.UserID = users.UserID WHERE users.email =?"
             result = await conn.query(sqlQuery,[email]) 
+            return result
         } catch (error) {
             
         }

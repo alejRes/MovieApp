@@ -32,10 +32,6 @@ const addFavorite = async (id)=>{
             'content-type': 'application/json'
         },
         body: JSON.stringify(favorite)
-
     }
-
     await fetch ('http://localhost:3000/favorites', options)
-    console.log(img)
-
 }

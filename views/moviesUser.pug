@@ -7,16 +7,25 @@ html(lang='en')
     link(rel='stylesheet' href='../public/style.css')
     title Movies
   body
-       div
-            img(src=data.Poster)
-        section
-              p Año:
-                span #{data.Year}
-              p Género:
-                span #{data.Genre}
-              p Duración:
-                span #{data.Runtime}
-        h1 #{data.Title}
-        section  
-              p Dirección:
-                span #{data.Director}
+      include header.pug 
+      if myFavorites
+        div
+          each val in myFavorites
+            div(id=val.Title)
+              if val.imdbID
+                img.normal(id=val.imdbID src='../public/images/heartFull.svg' onClick='addFavorite(id)' alt='heartEmpty')
+              else  
+                img.nomral(id=val.filmId  src='../public/images/heartFull.svg' onClick='addFavorite(id)' alt='heartEmpty')
+              img(src=val.Poster)
+              section#cardItems
+                p Año: 
+                  span #{val.Year}
+                p Género: 
+                  span #{val.Genre}
+                p Duración: 
+                  span #{val.Runtime}
+              h3 #{val.Title}  
+              p Dirección: 
+                span #{val.Director}
+      else 
+        h1 No tienes favoritos

@@ -1,4 +1,3 @@
-doctype html
 html(lang='en')
   head
     meta(charset='UTF-8')
@@ -7,12 +6,16 @@ html(lang='en')
     link(rel='stylesheet' href='../public/style.css')
     title Busca pelis
   body
-    include header.pug 
-    main
-      div
-        h2 ¿Buscar una película?
-        button(a='' href='/search' type='button' value='Buscar películas') Buscar películas
-      div
-        h2 Mira tus películas favoritas
-        button(a='' href='/movies' type='button' value='Mis películas favoritas') Mis películas favoritas
-      
+    include header.pug
+
+    main#dashboard
+      section 
+        button#search
+          h2 Buscar Película
+        img(src="../public/images/cine.svg", alt="Buscar")
+      section
+        button#myFilms
+          h2 Mis Películas
+        img(src="../public/images/oscar.svg", alt="Mis Películas")
+
+    script(src='../public/script/dashboard.js')

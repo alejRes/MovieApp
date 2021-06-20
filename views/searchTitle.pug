@@ -7,32 +7,46 @@ html(lang='en')
     link(rel='stylesheet' href='../public/style.css')
     title Search title
   body
+    include header.pug
+    main#detailFilm
       div(id=film.imdbID)
+        img#imgHeartFilm(src='../public/images/heartEmpty.svg')
         section 
           h2=film.Title
         img(src=film.Poster)
-        img.normal#imgHeart(src='../public/images/heartEmpty.svg')
+        
         section#cardItems
-          p Año: 
+          p 
+            strong Año: 
             span=film.Year
-          p Género: 
+          p 
+            strong Género: 
             span=film.Genre
-          p Duración: 
+          p 
+            strong Duración: 
             span=film.Runtime
-        section
-          p Estreno: 
-            span=film.Released
-          p Reparto: 
-            span=film.Actors
-          p País: 
-            span=film.Country
-          p Idioma: 
-            span=film.Languge
-          p Premios: 
-            span=film.Awards
-          p Dirección: 
+          p 
+            strong Dirección: 
             span=film.Director
+        section
+          p 
+            strong Reparto: 
+            span=film.Actors
+          p 
+            strong País: 
+            span=film.Country
+          p 
+            strong Idioma: 
+            span=film.Language
+          p 
+            strong Premios: 
+            span=film.Awards
+          p 
+            strong Estreno: 
+            span=film.Released
         article 
           h3 Sinopsis 
           p=film.Plot  
         section#options
+
+script(src='../public/script/dashboard.js')

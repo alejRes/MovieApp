@@ -7,13 +7,15 @@ html(lang="en")
         title Films
         link(rel='stylesheet' href='../public/style.css')
     body 
+    
+      //img.Logo(src="../public/images/logo.png", alt="logo" class="logo")
     if url != "/" && url != "/signup"
         if rol == false
             header
                 nav(id='container')
                     input#menu(type='checkbox')
                     label(for='menu') Menú
-                    ul(class='drop')
+                    ul
                         li
                             a(href='/dashboard') Panel de control
                         li

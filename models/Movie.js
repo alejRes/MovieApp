@@ -32,6 +32,15 @@ const movieSchema = new Schema({
         type: String,
         require: true
     },
+    Awards:{
+        type: String
+    },
+    Language:{
+        type: String
+    },
+    Country:{
+        type: String
+    },
     Poster: {
         type: String,
         validate: {

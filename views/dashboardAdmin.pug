@@ -1,0 +1,17 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        //- script(src="../public/scripts/utils/utilsAdmin.js") 
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Pagina inicio
+    body 
+        button#btCrear 
+            a(href="/createMovie") Crear pelicula nueva
+        if(data)   
+            ul#listfilms
+                
+        else    
+            p Datos no encontrados
+        script(src="../public/scripts/initAdmin.js" type='module') 

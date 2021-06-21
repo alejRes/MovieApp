@@ -1,9 +1,11 @@
-const port = process.env.PORT || 3000
-const express = require('express')
-const app = express()
-const router = require("./routes/User")
+const port = process.env.PORT || 3000;
+const  router = require('./routes/User');
+const routerAdmin =require('./routes/routesApiAdmin')
+const express = require('express');
+const app = express();
 
-require('dotenv').config()
+require('dotenv').config();
+require('./utils/connectDB');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -16,6 +18,9 @@ app.set('views','./views')
 app.use('/', router)
 
 
+
+app.use("/", router)
+app.use("/apiAdmin",routerAdmin)
 
 app.listen(port, ()=>{
     console.log(`servidor: http://localhost:${port}`)

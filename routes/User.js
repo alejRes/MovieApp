@@ -1,8 +1,6 @@
-
 const router = require ("express").Router();
 const user = require ("../controllers/user")
-
-//const admin = require ("./controllers/admin")
+const admin = require ("./controllers/admin")
 //const auth = require ("./controllers/auth")
 
 // router.get('/', user.home)
@@ -13,16 +11,19 @@ router.get('/search/:title', user.searchTitle)
 router.post('/favorites', user.addRemoveFavorite)
 router.get('/favorites', user.getFavorites)
 
-// router.post('/signup', user.signup)
-// router.post('/login', user.login)
-// router.post('/logout', user.logout)
 
-// router.post('/login', admin.login)
-// router.post('/createMovie', admin.createMovie)
-// //router.get('/movies', admin.movies)
-// router.put('/editMovie/:id', admin.editMovie)
-// router.delete('/removeMovie', admin.removeMovie)
+/* router.post('/signup', user.signup)
+router.post('/login', user.login)
+router.post('/logout', user.logout) */
 
-//router.get('*', user.home)
+router.get('/movies', admin.getMovie)
+
+router.get('/createMovie', admin.getCreateMovie)
+
+router.get('/editMovie/:id', admin.getUpdMovie)
+
+
+// router.get('*', user.home)
+
 
 module.exports = router;

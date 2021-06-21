@@ -1,2 +1,2 @@
-document.getElementById("search").addEventListener("click", () => window.location.href = '/search')
-document.getElementById("myFilms").addEventListener("click", () => window.location.href = "/movies")
+document.getElementById("search").addEventListener("click", () => window.location.href = "/search")
+document.getElementById("myMovies").addEventListener("click", () => window.location.href = "/movies")

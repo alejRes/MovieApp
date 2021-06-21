@@ -4,18 +4,19 @@ html(lang='en')
     meta(http-equiv='X-UA-Compatible' content='IE=edge')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
     link(rel='stylesheet' href='../public/style.css')
-    title Busca pelis
+    title Panel de control
   body
     include header.pug
 
     main#dashboard
-      section 
-        button#search
-          h2 Buscar Película
-        img(src="../public/images/cine.svg", alt="Buscar")
       section
-        button#myFilms
-          h2 Mis Películas
-        img(src="../public/images/oscar.svg", alt="Mis Películas")
+        a(href="/search/")
+          button#search
+            h2 Buscar Película
+        img(src="../public/images/cine.svg", alt="Buscar")
 
-    script(src='../public/script/dashboard.js')
+      section
+        a(href="/movies/")
+          button#myFilms
+            h2 Mis Películas
+        img(src="../public/images/oscar.svg", alt="Mis Películas")

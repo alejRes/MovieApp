@@ -5,17 +5,20 @@ html(lang='en')
     meta(http-equiv='X-UA-Compatible' content='IE=edge')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
     link(rel='stylesheet' href='../public/style.css')
-    title Search title
+    title Película en detalle
   body
     include header.pug
+    form#form(method='POST', action='/search')
+        input#searchText(type='text', name='filmSearch', placeholder='Busca tu película')
+        input#searchButton(type='submit', name='searchButton', value="Buscar")
     main#detailFilm
       div(id=film.imdbID)
-        img#imgHeartFilm(src='../public/images/heartEmpty.svg')
+        img.normalFilm(src='../public/images/heartEmpty.svg')
         section 
           h2=film.Title
         img(src=film.Poster)
-        
-        section#cardItems
+          
+        section.cardItems
           p 
             strong Año: 
             span=film.Year
@@ -28,7 +31,6 @@ html(lang='en')
           p 
             strong Dirección: 
             span=film.Director
-        section
           p 
             strong Reparto: 
             span=film.Actors
@@ -46,7 +48,8 @@ html(lang='en')
             span=film.Released
         article 
           h3 Sinopsis 
-          p=film.Plot  
+          p=film.Plot
         section#options
+        
 
 script(src='../public/script/dashboard.js')

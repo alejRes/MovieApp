@@ -49,7 +49,7 @@ export const paintList = ({Title, filmId})=>{
 
 const updateFilm = async (e)=>{
     const id = e.target.id
-    window.location.assign(`http://localhost:3000/editMovie/${id}`)
+    window.location.assign(`http://localhost:3000/editmovie/${id}`)
     
 }
 const deleteFilm = (e)=>{

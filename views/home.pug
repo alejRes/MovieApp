@@ -12,8 +12,15 @@ body
       input.ghost-input(name='username', type='email', placeholder='Usuario', required='')
       label(for='password') Password
       input.ghost-input(name='password', type='password', placeholder='Password', required='')
-      input.ghost-button(type='submit', value='Login')
+      input.ghost-button(type='submit', value='Login', onclick="spinner()")
       
     p.pregunta ¿No estás registrado?
-    a.button.ghost-button2(href= '/signup' value='signup') Signup     
+    a.button.ghost-button2(href= '/signup' value='signup') Signup  
+
+  .loader
+      .loading
+  script(type='text/javascript').
+    function spinner() {
+    document.getElementsByClassName("loader")[0].style.display = "block";
+    } 
         

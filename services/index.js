@@ -4,10 +4,13 @@ const moment = require('moment')
 
 
 
+
+
 function createToken (user) {
+    console.log(user)
 
     const payload = {
-        sub: user.idUser,
+        sub: user.UserID, 
         email:user.Email,
         rol: user.Role,
         iat: moment().unix(),//fecha de cuando se creó el token 

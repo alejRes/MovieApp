@@ -11,6 +11,10 @@
 /*HOME---------------------*/
 .container{
     display: flex;
+    flex-direction: column;
+    justify-content:center;
+    justify-items: center;
+    align-items:flex-start;
     width: 100vw;
     margin: 0 auto;
 }
@@ -43,11 +47,10 @@ body{
 
   .ghost-button {
     background-color: transparent;
-    border:2px solid #ddd;
-    padding:10px 30px; 
-    width:60vw;
-    height: 5vh;
-    font-size: 35px;
+    width:30vw;
+    height: 6vh;
+    font-size: 40px;
+    font-family: Open Sans,Verdana;
     font-weight: bold;
     margin: 30px;
     color: white;
@@ -68,3 +71,48 @@ body{
       align-items: flex-end;
       margin-left: 15px;
   }
+
+
+  a.ghost-button{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    margin: 400px 100px 0px 0px;
+  }
+
+  a{
+    color: white;
+    font-size: 40px;
+    border:2px solid #ddd;
+    border-radius: 15px;
+    text-decoration: none;
+    font-family: Open Sans,Verdana;
+    padding:10px 30px; 
+    font-weight: bold;
+    margin: 50px 20px 0px 0px;
+  }
+
+  p{
+    margin: 30px;
+    width:30vw;
+  }
+
+  a.ghost-button2{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    margin-left: 30px;
+  }
+
+  .pregunta{
+    color:white;
+    font-family: Open Sans,Verdana;;
+    font-size: 30px;
+  }
+
+  
+
+
+    
+
+  

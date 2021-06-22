@@ -1,20 +1,13 @@
+
 let userList = [];
 
-
-function validateUser() {
-    let username = document.getElementById("username").value;
-    let password = document.getElementById("password").value;
-    if (username == null || username == "") {
-      return false;
-    }
-    if (password == null || password == "") {
-        password;
-      return false;
-    }
+  function logOut(){
+    fetch('http://localhost:3000/logout')
+    .then(res => {
+      console.log(res)
+      window.location.href=res.url;
+    })
   }
-  
-
-
 
 function addUser(user, password) {
   let newUser = {
@@ -26,9 +19,7 @@ function addUser(user, password) {
   jsonObjsUsersList(userList);
 }
 
-document.querySelector("form").addEventListener("submit", (event) => {
-  event.preventDefault();
-});
+
 
 
 /*function saveUser() {

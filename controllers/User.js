@@ -1,56 +1,62 @@
+const sha1 = require("crypto-js/sha1");
 
-const User = require('../models/user');
-const service = require('../services/index');
-const sql = require('../models/sql')
+const service = require("../services/index");
+const sql = require("../models/sql");
 
-function signUp (req,res){
-    const user = new User({
-        email: req.body.username,
-        password:req.body.password
-    })
-    user.save((err) => {
-        if(err) res.status(500).send({message: `Error al crear el usuario: ${err}`})
 
-        res.status(200).send({token: service.createToken(user)})
-    })
+function signUp(req, res) {
+  const user = {
+    email: req.body.username,
+    password: req.body.password,
+    password2: req.body.password2,
+  };
+
 }
 
-
-async function logIn (req,res){
-    if(req.body.username && req.body.password ){
-        let result = await sql.getUser(req.body.username)
-        
-        res.cookie("session-cookie", service.createToken(result), {
-          maxAge: 60 * 60 * 24 * 5 * 1000,
-          httpOnly: true,
-        })
-        .status(200)
-        .json({ result });
-    
-    }  
+function signUpForm(req, res) {
+  res.status(200).render("signup");
 }
 
-
-
-function getHome(req,res){
-    //console.log("hola !!!!!")
-    res.status(200).render("home");
+async function logIn(req, res) {
+  let result = await sql.getUser(req.body.username, req.body.password);
+  console.log("controllers user", result);
+  if (result) {
+    res
+      .cookie("session-cookie", service.createToken(result), {
+        maxAge: 60 * 60 * 24 * 5 * 1000,
+        httpOnly: true,
+      })
+      .status(200)
+      .render("dashboard");
+    //.json({ message: 'Usuario logado' });
+  } else {
+    res.status(404).send({ message: "Usuario no registrado" });
+  }
 }
 
-function getDashboard(req,res){
-    console.log(res.locals.rol)
-    if (res.locals.rol > 0){
-        res.redirect(302,'/home')
-    }else{
-        res.redirect(400,'/')
-
-    }
-    res.status(200).render("dashboard");
+function getHome(req, res) {
+  //console.log("hola !!!!!")
+  res.status(200).render("home");
 }
 
+function getDashboard(req, res) {
+  console.log(res.locals.rol);
+  if (res.locals.rol > 0) {
+    res.redirect(302, "/home");
+  } else {
+    res.redirect(400, "/");
+  }
+  res.status(200).render("dashboard");
+}
+function logOut(req,res){
+    res.clearCookie('session-cookie');
+    res.redirect('/')
+}
 module.exports = {
-    signUp,
-    logIn,
-    getHome,
-    getDashboard
-}
+  signUp,
+  logIn,
+  getHome,
+  getDashboard,
+  signUpForm,
+  logOut
+};

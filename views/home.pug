@@ -3,27 +3,17 @@ head
   meta(charset='utf-8')
   title Film
   link(rel='stylesheet', type='text/css', href='/css/style.css')
-  link(href='https://fonts.googleapis.com/css?family=Open+Sans:300', rel='stylesheet', type='text/css')
   
 body   
-include header
-.container
-  form.homeForm(action='/login', method='post')
-    label(for='user') User
-    input.ghost-input(name='username', type='text', placeholder='Usuario', required='')
-    label(for='password') Password
-    input.ghost-input(name='password', type='password', placeholder='Password', required='')
-    input.ghost-button(type='submit', value='Login')
-    button.ghost-button(value='signup') Signup 
-
-
-
-<script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js">
-
-  
-//Loads the login UI elements-->
-<script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js">
-
-<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
-        
+  include header
+  .container
+    form.homeForm(action='/login', method='post')
+      label(for='user') User
+      input.ghost-input(name='username', type='email', placeholder='Usuario', required='')
+      label(for='password') Password
+      input.ghost-input(name='password', type='password', placeholder='Password', required='')
+      input.ghost-button(type='submit', value='Login')
+      
+    p.pregunta ¿No estás registrado?
+    a.button.ghost-button2(href= '/signup' value='signup') Signup     
         

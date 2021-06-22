@@ -21,7 +21,7 @@ function isAuth(req, res, next) {
     });
 }
 
-async function claims(req,res,next){
+async function claims(req,res,next){//permisos
     const cookie = req.cookies["session-cookie"];
     if(cookie){
         

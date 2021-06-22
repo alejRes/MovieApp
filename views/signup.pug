@@ -8,15 +8,17 @@ head
 body   
 include header
 .container
-  form.homeForm(action='/login', method='post')
+  form.homeForm(action='/signup', method='post')
     label(for='user') User
     input.ghost-input(name='username', type='text', placeholder='Usuario', required='')
     label(for='password') Password
     input.ghost-input(name='password', type='password', placeholder='Password', required='')
     label(for='password') Password
-    input.ghost-input(name='password2', type='password', placeholder='Password', required='')
+    input.ghost-input(name='password2', type='password', placeholder='Introduce de nuevo el Password', required='')
 
-    button.ghost-button(value='signup') Signup 
-
+    button.ghost-button(value='signup') Signup
   p
-    a(href='/home') Inicio
+    a(href='/') Inicio
+     
+
+  

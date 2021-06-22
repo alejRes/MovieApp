@@ -1,0 +1,49 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel='stylesheet' href='../public/style.css')
+        title Crea o Edita
+    body 
+        include header.pug
+        main
+            if data 
+                h1 Edita pelicula
+                form#CrUpFilm(action="", method="")
+                    input#title(type="text", name="Title", placeholder="Título" value=data.Title readonly)
+                    input#year(type="number", name="Year", placeholder="Año" value=data.Year)
+                    input#runtime(type="number", name="Runtime", placeholder="Duración" value=data.Runtime)
+                    input#genre(type="text", name="Genre", placeholder="Género" value=data.Genre)
+                    input#director(type="text", name="Director", placeholder="Director" value=data.Director)
+                    input#actors(type="text", name="Actors", placeholder="Reparto" value=data.Actors)
+                    input#plot(type="textarea", name="Plot", placeholder="Sinopsis" value=data.Plot)
+                    input#poster(type="text", name="Poster", placeholder="Imagen" value=data.Poster)
+                    input#imdbRating(type="number", name="imdbRating", placeholder="Puntuación" value=data.imdbRating)
+                    input#awards(type="text", name="Awards", placeholder="Premios" value=data.Awards)
+                    input#language(type="text", name="Languag", placeholder="Idioma" value=data.Language)
+                    input#country(type="text", name="Country", placeholder="País" value=data.Country)
+
+                    button#btnSU Actualizar
+            else
+                h1 Nueva película
+                form(action="/apiAdmin/createMovie", method="POST")
+                    input#title(type="text", name="Title", placeholder="Título")
+                    input#year(type="number", name="Year", placeholder="Año")
+                    input#runtime(type="number", name="Runtime", placeholder="Duración")
+                    input#genre(type="text", name="Genre", placeholder="Género")
+                    input#director(type="text", name="Director", placeholder="Director")
+                    input#actors(type="text", name="Actors", placeholder="Reparto")
+                    input#plot(type="textarea", name="Plot", placeholder="Sinopsis")
+                    input#poster(type="text", name="Poster", placeholder="Imagen")
+                    input#imdbRating(type="number", name="imdbRating", placeholder="Puntuación" v)
+                    input#awards(type="text", name="Awards", placeholder="Premios")
+                    input#language(type="text", name="Languag", placeholder="Idioma" val)
+                    input#country(type="text", name="Country", placeholder="País")
+                
+                    input(type="submit", value="Crear Pelicula")
+            if message 
+                p=message
+        script(src="../public/scripts/scriptAdmin.js" type="module") 
+

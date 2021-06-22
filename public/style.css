@@ -11,6 +11,7 @@
 /*HOME---------------------*/
 .container{
     display: flex;
+    background-color: black;
     flex-direction: column;
     justify-content:center;
     justify-items: center;
@@ -19,7 +20,7 @@
     margin: 0 auto;
 }
 
-body{
+.body{
     background-color: black
 } 
 
@@ -80,7 +81,7 @@ body{
     margin: 400px 100px 0px 0px;
   }
 
-  a{
+  a.inicio{
     color: white;
     font-size: 40px;
     border:2px solid #ddd;
@@ -92,16 +93,9 @@ body{
     margin: 50px 20px 0px 0px;
   }
 
-  p{
+  p.volver{
     margin: 30px;
     width:30vw;
-  }
-
-  a.ghost-button2{
-    display: flex;
-    flex-direction: column;
-    justify-content:center;
-    margin-left: 30px;
   }
 
   .pregunta{
@@ -137,6 +131,28 @@ body{
       transform: rotate(360deg);
     }
   }
+
+
+  a.button.ghost-button2{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content:center;
+    color:white;
+    font-size: 40px;
+    background-color: transparent;
+    width:20vw;
+    height: 6vh;
+    font-size: 40px;
+    font-family: Open Sans,Verdana;
+    font-weight: bold;
+    margin: 30px;
+    text-decoration: none;
+    border:2px solid #ddd;
+    border-radius: 15px;  
+  }
+
+  
   
 
 

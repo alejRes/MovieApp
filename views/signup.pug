@@ -5,7 +5,7 @@ head
   link(rel='stylesheet', type='text/css', href='/css/style.css')
   link(href='https://fonts.googleapis.com/css?family=Open+Sans:300', rel='stylesheet', type='text/css')
   
-body   
+body.body   
 include header
 .container
   form.homeForm(action='/signup', method='post')
@@ -17,8 +17,8 @@ include header
     input.ghost-input(name='password2', type='password', placeholder='Introduce de nuevo el Password', required='')
 
     button.ghost-button(value='signup') Signup
-  p
-    a(href='/') Inicio
+  p.volver
+    a.inicio(href='/') Inicio
 
 
      

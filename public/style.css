@@ -12,6 +12,17 @@
     justify-content: center;
     margin-bottom: 20px;
 }
+#formCreate{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 40px;
+    width: 300px;
+}
+#submit{
+    width: 150px;
+    margin-left: 75px;
+}
 #searchText{
     border-radius: 10px;
     margin-right: 20px;
@@ -67,7 +78,7 @@ h2{
     width: 50px;
     display: flex;
     position: absolute;
-    right: 30px;
+    right: 20px;
 }
 #searchMovies .poster {
     width: 40vw;
@@ -79,6 +90,14 @@ h2{
     border-radius: 30px;
     font-size: 14px;
     width: 100px;
+}
+#btCrear{
+    
+    padding: 60px;
+    margin: 40px;
+    border-radius: 45px;
+    background: rgb(255,253,247);
+    background: linear-gradient(283deg, rgba(255,253,247,1) 38%, rgba(0,0,0,0.4738270308123249) 98%);
 }
 
 /*--DETALLE PELÍCULA--*/

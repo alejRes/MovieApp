@@ -13,7 +13,7 @@ html(lang='en')
         input#searchButton(type='submit', name='searchButton', value="Buscar")
     main#detailFilm
       div(id=film.imdbID)
-        img.normalFilm(src='../public/images/heartEmpty.svg')
+        img.normalFilm(id=film.imdbID src='../public/images/heartEmpty.svg' onClick='addFavorite')
         section 
           h2=film.Title
         img(src=film.Poster)

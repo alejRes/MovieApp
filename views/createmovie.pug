@@ -1,0 +1,29 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel='stylesheet' href='../public/style.css')
+        title Document
+    body 
+        include header.pug
+    main
+            form#formCreate(action="/createMovie", method="post")
+                label(for="title") Título
+                input#title(type="text", name="title", placeholder="Título")
+                label(for="year") Año
+                input#year(type="number", name="year", placeholder="Año")
+                label(for="director") Director
+                input#director(type="text", name="director", placeholder="Director")
+                label(for="actors") Reparto
+                input#actors(type="text", name="actors", placeholder="Reparto")
+                label(for="plot") Sinopsis
+                input#plot(type="textarea", name="plot", placeholder="Sinopsis")
+                label(for="genre") Género
+                input#genre(type="text", name="genre", placeholder="Género")
+                label(for="runtime") Duración
+                input#runtime(type="number", name="runtime", placeholder="Duración")
+                br
+                input#submit(type="submit", value="Crear Pelicula")
+                img(src="../public/images/claqueta.svg", alt="")

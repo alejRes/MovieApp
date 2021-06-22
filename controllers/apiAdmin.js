@@ -16,10 +16,10 @@ const apiAdmin = {
                 film.save((err, data) => {
                     if (err) {
                         console.log(data)
-                        res.status(400).json({ message: `error ${err.message}`, popup: false })
+                        res.status(400).render('createmovie')
                     } else {
                         console.log(data)
-                        res.status(200).json({ message: `Pelicula guardada correctamente`, popup: true, data })
+                        res.redirect(307,'/movies')
                     }
                 })
             } catch (error) {
@@ -47,22 +47,28 @@ const apiAdmin = {
     },
     editMovie: async(req, res)=>{
         const data = req.body
-        const id = req.params.id
+        const id = Number(req.params.id)
+        console.log('*************')
+        console.log(data)
+
         try {
-            let result = await Film.findOne({idFilm:`${id}`})
-        
+            let result = await Film.findOne({filmId:0})
+            console.log(result)
             if(data.Title.toLowerCase().replace(/ \s+/g, "")==result.Title.toLowerCase().replace(/ \s+/g, "")){
-                await Film.updateOne({_id:`${id}`},{$set: data},(err,data)=>{
+                
+                await Film.updateOne({filmId:`${id}`},{$set: data},(err,data)=>{
                     if (err)
                     {   
                         console.log(err.message)
                         res.status(401).render({message:`error ${err.message}`}) 
                     }
+                    
                     res.status(200).render('createmovie',{message: `actualizado correctamente`, data})
                 })
                  
             }else
-                res.status(204).render('createmovie',{message: 'no se puede modificar el titulo'})
+                
+                res.status(204).render('createmovie',{message: 'no se puede modificar el titulo', data})
            
         } catch (err) {
             

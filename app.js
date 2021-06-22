@@ -15,10 +15,6 @@ app.use("/public", express.static("public"))
 app.set('view engine','pug')
 app.set('views','./views')
 
-app.use('/', router)
-
-
-
 app.use("/", router)
 app.use("/apiAdmin",routerAdmin)
 

@@ -10,6 +10,23 @@ const pool = mariadb.createPool({
 
 //CRUD
 
+async function createUser(email,password){
+  let conn;
+  let res;
+  try{
+    conn= await pool.getConnection();
+    let sql_query= "INSERT INTO users (`Email`, `Password`) VALUES (?,?)";
+    res= await conn.query(sql_query,[email,password]);
+    console.log(res)
+  }catch (err){
+    throw(err);
+  }finally{
+    if (conn) conn.end();
+  }
+  return res;
+  
+}
+
 async function getUser(email, password) {
   let conn;
   let res;
@@ -29,7 +46,7 @@ async function getUser(email, password) {
     throw err;
   } finally {
     conn.end();
-    return res;
+    return res[0];
   }
 }
 
@@ -70,4 +87,5 @@ module.exports = {
   getUser,
   getAllUsers,
   getUsersByMail,
+  createUser
 };

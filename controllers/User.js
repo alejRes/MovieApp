@@ -4,12 +4,30 @@ const service = require("../services/index");
 const sql = require("../models/sql");
 
 
-function signUp(req, res) {
+async function signUp(req, res) {
   const user = {
     email: req.body.username,
     password: req.body.password,
     password2: req.body.password2,
   };
+  let status;
+  let login;
+  try{
+    status= 200
+    login = await sql.createUser(user.email, user.password);
+
+  }catch (e){
+    login = null
+    console.error(e)
+    status=400
+  }finally{
+    console.log(login)
+    if (login.insertId){
+      res.cookie('session-cookie', createToken(result))
+    }
+    res.status(status).redirect('/dashboard')
+  }
+  
 
 }
 

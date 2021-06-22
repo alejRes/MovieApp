@@ -1,18 +1,146 @@
+:root {
+    font-family:'Poppins', sans-serif;
+    background: rgb(70,96,236);
+    background: linear-gradient(344deg, rgba(70,96,236,1) 14%, rgba(11,62,143,0.36738445378151263) 33%);
+    background-attachment: fixed;
+}
+
+/*--FORMULARIO--*/
 
 #form{
     display: flex;
     justify-content: center;
+    margin-bottom: 20px;
 }
-#card{
-    padding: 20px;
+#formCreate{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 40px;
+    width: 300px;
+}
+#submit{
+    width: 150px;
+    margin-left: 75px;
+}
+#searchText{
+    border-radius: 10px;
+    margin-right: 20px;
+    height: 35px;
+}
+#searchButton{
+    border-radius: 10px;
+    background-color: white;
+}
+
+/* .logo{
+    height: 30vw;
+    width: 94vw;
+    border-radius: 45px;
+} */
+
+/*--TARJETAS/SEARCH--*/
+
+#searchMovies div {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: solid 2px black;
+    border-radius: 5px;
+    background: rgb(255,253,247);
+    background: linear-gradient(283deg, rgba(255,253,247,1) 38%, rgba(0,0,0,0.4738270308123249) 98%);
+
+}
+h2{
+    font-size: 2.1em;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
 #cardItems{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+#searchMovies img.poster {
+    width: 70vw;
+    height: 100vw;
+    border-radius: 5px;
+}
+
+#imgLogo{
+    width: 80vW;
+    height: 80vw;
+    border-radius: 15px;
+}
+
+.normal {
+    width: 50px;
+    display: flex;
+    position: absolute;
+    right: 20px;
+}
+#searchMovies .poster {
+    width: 40vw;
+    height: fit-content;
+    border-radius: 5px;
+}
+
+#btnInfo{
+    border-radius: 30px;
+    font-size: 14px;
+    width: 100px;
+}
+#btCrear{
+    
+    padding: 60px;
+    margin: 40px;
+    border-radius: 45px;
+    background: rgb(255,253,247);
+    background: linear-gradient(283deg, rgba(255,253,247,1) 38%, rgba(0,0,0,0.4738270308123249) 98%);
+}
+
+/*--DETALLE PELÍCULA--*/
+
+#detailFilm {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-content: left;
+    padding: 15px;
+    margin: 5px;
+    border: solid 1px black;
+    border-radius: 5px;
+    background: rgb(255,253,247);
+    background: linear-gradient(283deg, rgba(255,253,247,1) 38%, rgba(0,0,0,0.4738270308123249) 98%);
+}
+
+.normalFilm{
+    width: 50px;
+    display: flex;
+    position: absolute;
+    right: 30px;
+}
+
+/*--DASHBOARD USER--*/
+
+#dashboard section {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#dashboard img {
+    width: 200px;
+}
+#dashboard button {
+    border-radius: 45px;
+    margin-bottom: 30px;
 }
 
 
-/*HAMBURGUESA*/
+/*--MENU HAMBURGUESA--*/
 
 nav#container {
     margin-top: 5px;
@@ -29,57 +157,42 @@ nav input {
     display: none;
 }
 nav label {
-    box-sizing: border-box;
-    display: inline-block;
+    display: flex;
+    justify-content: center;
     border: 1px solid black;
     border-radius: 5px;
-    width: 54px;
+    width: 100px;
     height: 30px;
     line-height: 30px;
-    font-weight: bold;
     text-align: center;
-    user-select: none;
+    color: black;
 }
 
 nav label:hover {
-    background: blue;
+    background-color: white;
 }
 
-
-/* Estilo del boton cuando el menú está expandido*/
-
-nav input:checked~label {
-    background: grey;
-}
-nav ul {
-    margin-top: 0;
-    padding: 0;
-    width: 95%;
-}
 nav li {
-    display: block;
-    background: grey;
-    margin-right: -21px;
+    list-style:none;
+    background-color: white;
     padding: 10px;
-    list-style: none;
     border-bottom: 1px solid black;
-    text-align: center;
+    text-align: left;
+    border-radius: 45px;
+    width: 200px;
 }
 
-/* MEDIA QUERYS -> RESPONSIVE */
-
+/* MEDIA QUERYS */
 
 /* Smartphones */
 
 @media (min-width:320px) {}
 
-@media (min-width:481px) {}
-
+@media (min-width:480px) {}
 
 /* Tablets */
 
 @media (min-width:641px) {}
-
 
 /* Laptops y high screens */
 

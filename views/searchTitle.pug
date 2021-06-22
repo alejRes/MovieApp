@@ -5,34 +5,51 @@ html(lang='en')
     meta(http-equiv='X-UA-Compatible' content='IE=edge')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
     link(rel='stylesheet' href='../public/style.css')
-    title Search title
+    title Película en detalle
   body
+    include header.pug
+    form#form(method='POST', action='/search')
+        input#searchText(type='text', name='filmSearch', placeholder='Busca tu película')
+        input#searchButton(type='submit', name='searchButton', value="Buscar")
+    main#detailFilm
       div(id=film.imdbID)
+        img.normalFilm(id=film.imdbID src='../public/images/heartEmpty.svg' onClick='addFavorite')
         section 
           h2=film.Title
         img(src=film.Poster)
-        img.normal#imgHeart(src='../public/images/heartEmpty.svg')
-        section#cardItems
-          p Año: 
+          
+        section.cardItems
+          p 
+            strong Año: 
             span=film.Year
-          p Género: 
+          p 
+            strong Género: 
             span=film.Genre
-          p Duración: 
+          p 
+            strong Duración: 
             span=film.Runtime
-        section
-          p Estreno: 
-            span=film.Released
-          p Reparto: 
-            span=film.Actors
-          p País: 
-            span=film.Country
-          p Idioma: 
-            span=film.Languge
-          p Premios: 
-            span=film.Awards
-          p Dirección: 
+          p 
+            strong Dirección: 
             span=film.Director
+          p 
+            strong Reparto: 
+            span=film.Actors
+          p 
+            strong País: 
+            span=film.Country
+          p 
+            strong Idioma: 
+            span=film.Language
+          p 
+            strong Premios: 
+            span=film.Awards
+          p 
+            strong Estreno: 
+            span=film.Released
         article 
           h3 Sinopsis 
-          p=film.Plot  
+          p=film.Plot
         section#options
+        
+
+script(src='../public/script/dashboard.js')

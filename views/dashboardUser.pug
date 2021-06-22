@@ -1,12 +1,27 @@
-doctype html
 html(lang='en')
   head
     meta(charset='UTF-8')
     meta(http-equiv='X-UA-Compatible' content='IE=edge')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
     link(rel='stylesheet' href='../public/style.css')
-    title Busca pelis
+    title Panel de control
   body
+<<<<<<< HEAD
+    include header.pug
+
+    main#dashboard
+      section
+        a(href="/search/")
+          button#search
+            h2 Buscar Película
+        img(src="../public/images/cine.svg", alt="Buscar")
+
+      section
+        a(href="/movies/")
+          button#myFilms
+            h2 Mis Películas
+        img(src="../public/images/oscar.svg", alt="Mis Películas")
+=======
     include header.pug 
     main
       div
@@ -16,3 +31,4 @@ html(lang='en')
         h2 Mira tus películas favoritas
         button(a='' href='/favorites' type='button' value='Mis películas favoritas') Mis películas favoritas
       
+>>>>>>> develop

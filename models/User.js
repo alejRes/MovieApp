@@ -16,10 +16,13 @@ const userRegistrer ={
             conn = await pool.getConnection();
             let sqlQuery = "SELECT idFilm FROM favoritefilms INNER JOIN users On favoritefilms.UserID = users.UserID WHERE users.email =?"
             result = await conn.query(sqlQuery,[email]) 
-            return result
         } catch (error) {
             
+        }finally{
+            if(conn)
+                conn.end();
         }
+        return result
     },
     //inserta en la tabla favoriteFilms el registro de la pelicula  marcada como favorito
     insertFaVoriteFilm: async(id, email) =>{
@@ -29,8 +32,13 @@ const userRegistrer ={
             conn = await pool.getConnection();
             let sqlQuery = "INSERT INTO favoriteFilms (idFilm, UserID) VALUES (?, (SELECT UserID FROM users WHERE email = ?))"
             result = await conn.query(sqlQuery,[id,email])
+            console.log('PELI insertada')
         } catch (error) {
-            
+            console.log("error en insertFavoriteFilm", error)
+
+        }finally{
+            if(conn)
+                return conn.end();
         }
     },
 
@@ -40,8 +48,12 @@ const userRegistrer ={
             conn = await pool.getConnection()
             let sqlQuery = " DELETE FROM `favoritefilms` WHERE idFilm = ? AND UserID = (SELECT UserID FROM users WHERE email = ?)"
             result = await conn.query(sqlQuery,[id,email])
+            console.log('PEli eliminada')
         } catch (error) {
-            
+            console.log("error en deleteFavoriteFilm", error)
+        }finally{
+            if(conn)
+                return conn.end();
         }
        
     }

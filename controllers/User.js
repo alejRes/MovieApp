@@ -1,6 +1,7 @@
 const fetch = require('node-fetch');
 const User = require('../models/User')
-
+const Film = require('../models/Film')
+const {scrapSensa, scrapFilmAffinity} = require('../utils/scrapping')
 const user = {
     search: (req, res) => {
         const rol = false
@@ -16,15 +17,22 @@ const user = {
         let completeFilms = [];
         let message = data.Error
         // console.log(data)
-        if(data.Response =='True'){
+        if (data.Response == 'True') {
             for (let i = 0; i < arrayFilms.length; i++) {
                 let response = await fetch(`http://www.omdbapi.com/?apikey=b41b321e&i=${arrayFilms[i].imdbID}`);
                 let data = await response.json();
                 completeFilms.push(data)
             }
             res.status(200).render('search', { completeFilms, rol })
-        }else{
-            res.status(404).render('search',{message,rol})
+        } else {
+            console.log('********3********')
+            console.log(filmToSearch)
+            let result = await Film.find({Title:filmToSearch})
+            result.forEach(element => {
+                completeFilms.push(element)
+            });
+            
+            res.status(200).render('search', {completeFilms, message, rol })
         }
     },
     searchTitle: async (req, res) => {
@@ -32,8 +40,21 @@ const user = {
         let titulo = req.params.title;
         let response = await fetch(`http://www.omdbapi.com/?apikey=b41b321e&t=${titulo}`);
         let film = await response.json()
-        console.log(film);
-        res.status(200).render('searchTitle', { film });
+        let scrapSens = await scrapSensa(titulo)
+        let scrapFilm = await scrapFilmAffinity(titulo)
+
+        console.log('********************')
+        console.log(scrapSens)
+        console.log(scrapFilm)
+        let pepe = 'pepe'
+        if(film.Response == 'True'){
+           res.status(200).render('searchTitle', { film, scrapFilm, scrapSens, pepe}); 
+        }else{
+            let pelimongo = await Film.find({Title:titulo})
+            film =(pelimongo[0])
+            res.status(200).render('searchTitle', {film} )
+        }
+        
 
     },
     dashboard: (req, res) => {
@@ -50,38 +71,56 @@ const user = {
         let state = req.body.state;
         console.log(id + " " + state)
         // if state == heartFull Delete
-        if (state == 'heartFull')
-            await User.deleteFavoriteFilm(id,users.user1)
-        // else insert
-        else 
-            await User.insertFaVoriteFilm(id,users.user1)
+        try {
+            if (state == 'heartFull') {
+                console.log('ESTAMOS EN DELETE')
+                console.log(id)
+                await User.deleteFavoriteFilm(id, users.user1)
+
+                // res.json({redirect:'/favorites'})
+                res.status(200)
+            }
+            else {
+                console.log('ESTAMOS EN INSERT')
+                console.log(id)
+                await User.insertFaVoriteFilm(id, users.user1)
+                res.status(200)
+            }
+        } catch (error) {
+            console.log(error)
+        }
+
+
     },
 
-    getFavorites: async(req,res)=>{
+    getFavorites: async (req, res) => {
         let users = {
             user1: 'micorreo@prueba.com',
             user2: 'micorreo@prueba2.com'
         }
         let rol = false
-        let myFavorites= []
+        let myFavorites = []
         let favorites = await User.getFavoritesFilms(users.user1)
-        if(favorites){
-            for (let index = 0; index <favorites.length; index++) {
+        
+        if (favorites) {
+            for (let index = 0; index < favorites.length; index++) {
                 const element = favorites[index];
-            
-                if(/^tt/.test(element.idFilm)){
+                console.log(element)
+                if (/^tt/.test(element.idFilm)) {
                     let response = await fetch(`http://www.omdbapi.com/?apikey=b41b321e&i=${element.idFilm}`)
                     let data = await response.json()
-                    myFavorites.push(data)                   
-                } 
-                else{
-                    //cuando este mergeado en develop model Admin de mongo requerirlo y utilizarlo
-                }             
+                    myFavorites.push(data)
+                }
+                else {
+                    let result = await Film.findOne({ filmId: element.idFilm })
+                    myFavorites.push(result)
+                }
             };
-            res.status(200).render('moviesUser',{myFavorites,rol})                    
+            res.status(200).render('moviesUser', { myFavorites, rol })
 
-        }else{
+        } else {
             console.log('no tienes favoritos')
+            res.status(200).render('moviesUser', { state: true })
         }
     }
 

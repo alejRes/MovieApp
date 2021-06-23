@@ -18,6 +18,31 @@ export const postUpdateFilm = async(peli, id) => {
         }
     }
 
+export const postCreateFilm = async (peli)=>{
+    try {
+        const options = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body:JSON.stringify(peli)
+        }
+        console.log(options.body)
+        const response = await fetch(`http://localhost:3000/apiAdmin/createMovie`,options)
+        const result = await response.json()
+        if(result.redirect){
+            window.location.assign('/movies')
+        }else{
+            window.location.reload()
+        }
+        return result 
+
+    } catch (error) {
+        return error.message
+    }
+}
+
 export const getMoviesList = async ()=>{
 
     const response = await fetch(`http://localhost:3000/apiAdmin/createList`)

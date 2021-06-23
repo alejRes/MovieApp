@@ -6,7 +6,6 @@ html(lang='en')
     link(rel='stylesheet' href='../public/style.css')
     title Panel de control
   body
-<<<<<<< HEAD
     include header.pug
 
     main#dashboard
@@ -17,18 +16,7 @@ html(lang='en')
         img(src="../public/images/cine.svg", alt="Buscar")
 
       section
-        a(href="/movies/")
+        a(href="/favorites/")
           button#myFilms
             h2 Mis Películas
         img(src="../public/images/oscar.svg", alt="Mis Películas")
-=======
-    include header.pug 
-    main
-      div
-        h2 ¿Buscar una película?
-        button(a='' href='/search' type='button' value='Buscar películas') Buscar películas
-      div
-        h2 Mira tus películas favoritas
-        button(a='' href='/favorites' type='button' value='Mis películas favoritas') Mis películas favoritas
-      
->>>>>>> develop

@@ -28,14 +28,17 @@ const admin = {
     //funcion que renderiza el dashboard del user o del admin
     getMovie: async(req, res) => {
         //let role;//Extraera la informacion de la cookie
-        /* if (role == "user") {
+        let rol = false
 
-        } else {} */
-        try {
-            let data = await Film.find()
-            res.status(200).render('dashboardAdmin',{data})
-        } catch (error) {
-            res.status(404).json({ message: `pagina no encontrada ${error.message}`})
+        if (rol == false) {
+            res.status(200).render('dashboardUser',{rol})
+        } else {
+            try {
+                let data = await Film.find()
+                res.status(200).render('dashboardAdmin',{data})
+            } catch (error) {
+                res.status(404).json({ message: `pagina no encontrada ${error.message}`})
+            }
         }
     },
     

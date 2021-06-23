@@ -36,7 +36,7 @@ export const paintList = ({Title, filmId})=>{
     imgUpdate.setAttribute("src","../public/images/editar.png")
     imgUpdate.setAttribute("id", id)
     let imgDelete = document.createElement("img")
-    imgDelete.setAttribute("src","../public/images/eliminar.png")
+    imgDelete.setAttribute("src","../public/images/basura.png")
     imgDelete.setAttribute("id",Title)
     li.appendChild(txt)
     div.appendChild(li)

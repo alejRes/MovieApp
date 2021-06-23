@@ -12,6 +12,7 @@
     justify-content: center;
     margin-bottom: 20px;
 }
+
 #formCreate{
     display: flex;
     flex-direction: column;
@@ -19,6 +20,7 @@
     padding: 40px;
     width: 300px;
 }
+
 #formAdmin{
     display: flex;
     flex-direction: column;
@@ -30,19 +32,23 @@
     padding: 10px;
     margin: 5px;
 }
+
 #campos{
     padding: 5px;
     margin-bottom: 5px
 }
+
 #submit{
     width: 150px;
     margin-left: 75px;
 }
+
 #searchText{
     border-radius: 10px;
     margin-right: 20px;
     height: 35px;
 }
+
 #searchButton{
     border-radius: 10px;
     background-color: white;
@@ -59,12 +65,13 @@
     border-radius: 5px;
     background: rgb(255,253,247);
     background: linear-gradient(283deg, rgba(255,253,247,1) 38%, rgba(0,0,0,0.4738270308123249) 98%);
-
 }
+
 h2{
     font-size: 2.1em;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
+
 #cardItems{
     display: flex;
     justify-content: space-around;
@@ -85,7 +92,7 @@ h2{
 }
 
 .normal {
-    width: 50px;
+    width: 40px;
     display: flex;
     position: absolute;
     right: 20px;
@@ -115,7 +122,13 @@ h2{
 
 #btnSU{
     width: 150px;
-    margin-left: 125px
+    margin-left: 85px
+}
+
+#listfilms > div > li{
+    font-size: 2em;
+    text-align: justify;
+    margin: 5px
 }
 
 /*--DETALLE PELÍCULA--*/
@@ -134,7 +147,7 @@ h2{
 }
 
 .normalFilm{
-    width: 50px;
+    width: 40px;
     display: flex;
     position: absolute;
     right: 30px;
@@ -157,11 +170,11 @@ h2{
     border-radius: 45px;
     margin-bottom: 30px;
 }
-#listfilms > div > li{
-    font-family: cursive;
+/* #listfilms > div > li{
+    
     font-size: 24px;
     margin-bottom: 10px;
-}
+} */
 
 #popup{
     margin: 70px auto;
@@ -176,23 +189,25 @@ h2{
     left:30%;
 }
 
+#popup > p{
+    font-size: 24px;
+}
+
 #yesBttn {
     font-size: 24px;
     margin: 10px;
     font-weight: bold;
 }
+
 #noBttn{
     font-size: 24px;
     font-weight: bold;
 }
+
 #xBttn{
     display: flex;
     
 }
-#popup > p{
-    font-size: 24px;
-}
-
 
 /*--MENU HAMBURGUESA--*/
 

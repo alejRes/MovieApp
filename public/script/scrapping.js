@@ -27,7 +27,7 @@ const scrapSensa = async(title) => {
   console.log(data);
 };
 
-// scrapSensa("avatar")
+//scrapSensa("avatar")
 
 
 const scrapFilmAffinity = async(titulo) => {

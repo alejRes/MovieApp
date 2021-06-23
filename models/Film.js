@@ -16,7 +16,7 @@ const filmSchema = new Schema({
     Title: {
         type: String,
         required: true,
-        unique: true
+        
     },
     Released: {
         type: String

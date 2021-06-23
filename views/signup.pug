@@ -1,14 +1,31 @@
 doctype html
-html(lang='en')
-  head
-    meta(charset='UTF-8')
-    meta(http-equiv='X-UA-Compatible' content='IE=edge')
-    meta(name='viewport' content='width=device-width, initial-scale=1.0')
-    link(rel='stylesheet' href='../public/style.css')
-    title Singup
-  body
-        form(method ='POST' action = '/singup')
-            
-            input(type="email" name="correo" placeholder="Introduce Email" required)
-            input(type="password" name="pass" placeholder="Introduce password")
-            input(type="submit", value="Sign Up")
+head
+  meta(charset='utf-8')
+  title Film
+  link(rel='stylesheet', type='text/css', href='../public/style.css')
+  link(href='https://fonts.googleapis.com/css?family=Open+Sans:300', rel='stylesheet', type='text/css')
+  link(href="../public/images/logo.png",rel="icon", type="image/png") 
+  
+body.body   
+include header
+.container
+  form.homeForm(action='/signup', method='post')
+    label(for='user') User
+    input.ghost-input(name='username', type='text', placeholder='Usuario', required='')
+    label(for='password') Password
+    input.ghost-input(name='password', type='password', placeholder='Password', required='')
+    label(for='password') Password
+    input.ghost-input(name='password2', type='password', placeholder='Introduce de nuevo el Password', required='')
+
+    input.ghost-button(type='submit',value='signup')
+    
+  p.volver
+    a.inicio(href='/') Inicio
+
+
+   
+
+
+     
+
+  

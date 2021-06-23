@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 :root {
     font-family:'Poppins', sans-serif;
     background: rgb(70,96,236);
@@ -279,3 +280,189 @@ nav li a{
 @media (min-width:1025px) {}
 
 @media (min-width:1281px) {}
+
+/* HEADER-----------------*/
+.logo{
+    width: 100vw;
+    height:30vh;
+}
+
+
+
+
+/*HOME---------------------*/
+.container{
+    display: flex;
+    background-color: black;
+    flex-direction: column;
+    justify-content:center;
+    justify-items: center;
+    align-items:flex-start;
+    width: 100vw;
+    margin: 0 auto;
+}
+
+.body{
+    background-color: black
+} 
+
+.ghost-input {
+    display: block;
+    font-weight:bold;
+    width: 90vw;
+    font-size: 35px;
+    border:0px;
+    outline: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #4b545f;
+    background: #fff;
+    font-family: Open Sans,Verdana;
+    padding: 20px;/*  */
+    margin: 40px;
+    -webkit-transition: all 0.1s ease-in-out;
+    -moz-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+    -o-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+  }
+
+  .ghost-button {
+    background-color: transparent;
+    width:30vw;
+    height: 6vh;
+    font-size: 40px;
+    font-family: Open Sans,Verdana;
+    font-weight: bold;
+    margin: 30px;
+    color: white;
+    border: 2px solid white;
+    border-radius: 15px;
+    -webkit-transition: all 0.1s ease-in-out;
+    -moz-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+    -o-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+  }
+  .ghost-button:hover {
+    border:2px solid #515151;
+  }
+
+  .btnSign{
+      display: flex;
+      align-items: flex-end;
+      margin-left: 15px;
+  }
+
+
+  a.ghost-button{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    margin: 400px 100px 0px 0px;
+  }
+
+  a.inicio{
+    color: white;
+    font-size: 40px;
+    border:2px solid #ddd;
+    border-radius: 15px;
+    text-decoration: none;
+    font-family: Open Sans,Verdana;
+    padding:10px 30px; 
+    font-weight: bold;
+    margin: 50px 20px 0px 0px;
+  }
+
+  p.volver{
+    margin: 30px;
+    width:30vw;
+  }
+
+  .pregunta{
+    color:white;
+    font-family: Open Sans,Verdana;;
+    font-size: 30px;
+    margin-left: 20px;
+  }
+
+  .loader {
+    display: none;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+  }
+  
+  .loading {
+    border: 6px solid #ccc;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border-top-color: #1ecd97;
+    border-left-color: #1ecd97;
+    animation: spin 1s infinite ease-in;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+  
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+
+  a.button.ghost-button2{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content:center;
+    color:white;
+    font-size: 40px;
+    background-color: transparent;
+    width:20vw;
+    height: 6vh;
+    font-size: 40px;
+    font-family: Open Sans,Verdana;
+    font-weight: bold;
+    margin: 30px;
+    text-decoration: none;
+    border:2px solid #ddd;
+    border-radius: 15px;  
+  }
+
+  .dashboard{
+    color: white;
+    font-size: 40px;
+    margin: 30px;
+  }
+
+  .logout-button{
+    display: flex;
+    text-align: center;
+    justify-content:center;
+    color:white;
+    font-size: 30px;
+    background-color: transparent;
+    width:30vw;
+    height: 8vh;
+    font-size: 20px;
+    font-family: Open Sans,Verdana;
+    font-weight: bold;
+    margin: 30px;
+    text-decoration: none;
+    border:2px solid #ddd;
+    border-radius: 15px;  
+  }
+
+  .dashboard-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+  }
+

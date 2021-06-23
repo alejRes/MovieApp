@@ -28,11 +28,11 @@ const admin = {
     //funcion que renderiza el dashboard del user o del admin
     getMovie: async(req, res) => {
         //let role;//Extraera la informacion de la cookie
-        let rol = false
-
-        if (rol == false) {
+        let rol = req.locals.rol
+        console.log('**********controlador', rol)
+        if (!rol) {
             res.status(200).render('dashboardUser',{rol})
-        } else {
+        }else {
             try {
                 let data = await Film.find()
                 res.status(200).render('dashboardAdmin',{data})

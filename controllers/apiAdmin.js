@@ -34,7 +34,6 @@ const apiAdmin = {
     getListMovies: async (req, res) => {
         let status;
         let data;
-        
         try {
             data = await Film.find()
             status = 200;
@@ -53,7 +52,7 @@ const apiAdmin = {
         console.log(data)
 
         try {
-            let result = await Film.findOne({filmId:0})
+            let result = await Film.findOne({filmId:id})
             console.log('*********2********', result)
             console.log(result)
             if(data.Title.toLowerCase().replace(/ \s+/g, "")==result.Title.toLowerCase().replace(/ \s+/g, "")){

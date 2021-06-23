@@ -1,0 +1,22 @@
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet' href='../public/style.css')
+    title Panel de control
+  body
+    include header.pug
+
+    main#dashboard
+      section
+        a(href="/search/")
+          button#search
+            h2 Buscar Película
+        img(src="../public/images/cine.svg", alt="Buscar")
+
+      section
+        a(href="/favorites/")
+          button#myFilms
+            h2 Mis Películas
+        img(src="../public/images/oscar.svg", alt="Mis Películas")

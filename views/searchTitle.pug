@@ -1,0 +1,65 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet' href='../public/style.css')
+    title Película en detalle
+  body
+    include header.pug
+    form#form(method='POST', action='/search')
+        input#searchText(type='text', name='filmSearch', placeholder='Busca tu película')
+        input#searchButton(type='submit', name='searchButton', value="Buscar")
+    main#detailFilm
+      div(id=film.Title)
+        if film.imdbID
+          img.normal(id=film.imdbID src='../public/images/heartEmpty.svg' onClick=`addFavorite(id)` alt='heartEmpty')
+        else  
+          img.normal(id=film.filmId  src='../public/images/heartEmpty.svg' onClick='addFavorite(id)' alt='heartEmpty')
+        section 
+          h2=film.Title
+        img(src=film.Poster)
+          
+        section.cardItems
+          p 
+            strong Año: 
+            span=film.Year
+          p 
+            strong Género: 
+            span=film.Genre
+          p 
+            strong Duración: 
+            span=film.Runtime
+          p 
+            strong Dirección: 
+            span=film.Director
+          p 
+            strong Reparto: 
+            span=film.Actors
+          p 
+            strong País: 
+            span=film.Country
+          p 
+            strong Idioma: 
+            span=film.Language
+          p 
+            strong Premios: 
+            span=film.Awards
+          p 
+            strong Estreno: 
+            span=film.Released
+        article 
+          h3 Sinopsis 
+          p=film.Plot
+        section#opinions
+          h2 Críticas
+          if scrapFilm
+            each val in scrapFilm
+              p #{val}
+          if scrapSens
+            each val in scrapFilm
+              p #{val}
+        
+
+script(src="../public/script/scriptuser.js") 

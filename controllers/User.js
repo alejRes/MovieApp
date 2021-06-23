@@ -23,7 +23,7 @@ async function signUp(req, res) {
   }finally{
     console.log(login)
     if (login.insertId){
-      res.cookie('session-cookie', createToken(result))
+      res.cookie('session-cookie')
     }
     res.status(status).redirect('/dashboard')
   }

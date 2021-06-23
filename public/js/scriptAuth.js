@@ -12,7 +12,7 @@ let userList = [];
 function addUser(user, password) {
   let newUser = {
     user: user,
-    password: password,
+    password: password
   };
   console.log(newUser); //solo para verificar que llega el objeto JSON a la consola
   userList.push(newUser); //metemos el nuevo usuario a la lista

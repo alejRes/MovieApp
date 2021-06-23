@@ -26,7 +26,7 @@ async function claims(req,res,next){//permisos
     if(cookie){
         
      let user = await services.decodeToken(cookie,process.env.SECRET_TOKEN);
-        res.locals.rol = user.rol;
+        res.locals.rol = user.role;
         res.locals.email = user.email
         next();
     }

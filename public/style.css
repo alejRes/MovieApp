@@ -102,6 +102,7 @@
     color:white;
     font-family: Open Sans,Verdana;;
     font-size: 30px;
+    margin-left: 20px;
   }
 
   .loader {
@@ -152,6 +153,36 @@
     border-radius: 15px;  
   }
 
+  .dashboard{
+    color: white;
+    font-size: 40px;
+    margin: 30px;
+  }
+
+  .logout-button{
+    display: flex;
+    text-align: center;
+    justify-content:center;
+    color:white;
+    font-size: 30px;
+    background-color: transparent;
+    width:30vw;
+    height: 8vh;
+    font-size: 20px;
+    font-family: Open Sans,Verdana;
+    font-weight: bold;
+    margin: 30px;
+    text-decoration: none;
+    border:2px solid #ddd;
+    border-radius: 15px;  
+  }
+
+  .dashboard-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+  }
   
   
 

@@ -21,7 +21,7 @@ html(lang='en')
                 img.normal(id=val.imdbID src='../public/images/heartEmpty.svg' onClick='addFavorite(id)' alt='heartEmpty')
               else  
                 img.normal(id=val.filmId  src='../public/images/heartEmpty.svg' onClick='addFavorite(id)' alt='heartEmpty')
-              //img(src=val.Poster)
+              
               section#cardItems
                 h2 #{val.Title}
                 img.poster(src=val.Poster)
@@ -43,7 +43,7 @@ html(lang='en')
                   p Más info
                           
       else
-        span
+        
           img.normal#imgLogo(src='../public/images/logo.png')
           //img.normal(src='../public/images/cine.svg')
       

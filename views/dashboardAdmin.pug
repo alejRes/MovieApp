@@ -6,29 +6,17 @@ html(lang="en")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         link(rel='stylesheet' href='../public/style.css')
-        title Pagina inicio
+        title Editar o crear
         include header.pug
     body 
             button#btCrear
                 a(href="/createMovie")
-                    h3 Crear película nueva
                     img(src="../public/images/claqueta.png", alt="")
+                    h3 Crear película nueva
+                    
             if(data)   
                 ul#listfilms
                     
             else    
                 p Datos no encontrados
-            script(src="../public/scripts/initAdmin.js" type='module') 
-    //body 
-        
-            button#btnCrear
-                h2 Crear película nueva
-                    a(href="/createMovie")
-                img(src="../public/images/claqueta.svg", alt="")
-                
-            if(data)   
-                ul#listfilms
-                    
-            else    
-                p Datos no encontrados
-            script(src="../public/scripts/initAdmin.js" type='module') 
+            script(src="../public/scripts/initAdmin.js" type='module')

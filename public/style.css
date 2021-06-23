@@ -32,10 +32,19 @@
     padding: 10px;
     margin: 5px;
 }
-
+#formAdmin > input[type=submit]{
+    width: 150px;
+    margin-left: 75px;
+}
 #campos{
+    display: flex;
+    justify-content: center;
     padding: 5px;
-    margin-bottom: 5px
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+body > main > h2{
+    text-align: center;
 }
 
 #submit{
@@ -170,11 +179,6 @@ h2{
     border-radius: 45px;
     margin-bottom: 30px;
 }
-/* #listfilms > div > li{
-    
-    font-size: 24px;
-    margin-bottom: 10px;
-} */
 
 #popup{
     margin: 70px auto;
@@ -254,6 +258,7 @@ nav li a{
     text-decoration: none;
     color: black;
 }
+
 
 /* MEDIA QUERYS */
 

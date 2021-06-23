@@ -32,6 +32,9 @@ html(lang='en')
                 p
                   strong Dirección: 
                   span #{val.Director}
+              a(href= "/search/"+ val.Title)
+                button#btnInfo
+                  p Más info
       else 
         h1 No tienes favoritos
 

@@ -38,12 +38,10 @@ const scrapFilmAffinity = async(titulo) => {
   const page = await browser.newPage();
   await page.goto("https://www.filmaffinity.com/");
   await page.click('[aria-label="ACEPTO"]')
-  
   await page.waitForSelector('input[id="top-search-input"]')
   await page.type('input[id="top-search-input"]', titulo)
   await page.waitForSelector('li[class="ui-menu-item"]')
   await page.click('li[class="ui-menu-item"]')
-  
   await page.waitForSelector('li div[itemprop="review"]')
   
   const data = await page.$$eval('li div[itemprop="review"]', (divs) => {

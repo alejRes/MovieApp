@@ -10,7 +10,7 @@ html(lang="en")
         include header.pug
         main
             if data 
-                h1 Edita una pelicula
+                h2 Edita una pelicula
                 form#formAdmin(action="", method="")
                     input#campos(type="text", name="Title", placeholder="Título" value=data.Title readonly)
                     input#campos(type="number", name="Year", placeholder="Año" value=data.Year)

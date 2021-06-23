@@ -36,7 +36,7 @@ const user = {
         }
     },
     searchTitle: async (req, res) => {
-
+        let rol =false
         let titulo = req.params.title;
         let response = await fetch(`http://www.omdbapi.com/?apikey=b41b321e&t=${titulo}`);
         let film = await response.json()

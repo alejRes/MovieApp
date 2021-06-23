@@ -58,10 +58,10 @@ export const paintList = ({Title, filmId})=>{
     let li = document.createElement("li")
     let txt = document.createTextNode(Title)
     let imgUpdate = document.createElement("img")
-    imgUpdate.setAttribute("src","../public/images/edit.png")
+    imgUpdate.setAttribute("src","../public/images/editar.png")
     imgUpdate.setAttribute("id", id)
     let imgDelete = document.createElement("img")
-    imgDelete.setAttribute("src","../public/images/delete.png")
+    imgDelete.setAttribute("src","../public/images/basura.png")
     imgDelete.setAttribute("id",Title)
     li.appendChild(txt)
     div.appendChild(li)
@@ -95,15 +95,19 @@ const deleteFilm = (e)=>{
     }
 
     let popup = document.createElement("section")
+    popup.setAttribute("id", "popup")
     let btnYes = document.createElement("button")
+    btnYes.setAttribute('id', 'yesBttn');
     let btnX = document.createElement("button")
+    btnX.setAttribute('id', 'xBttn');
     let btnCancel = document.createElement("button")
+    btnCancel.setAttribute('id', 'noBttn');
     btnYes.innerText = "Si"
-    btnCancel.innerText= "Cancel"
+    btnCancel.innerText= "No"
     let imgX = document.createElement("img")
     imgX.setAttribute("src","../public/images/cancel.png")
     let p= document.createElement("p")
-    p.innerText=`seguro que quieres eliminar ${title}`
+    p.innerText=`¿Seguro que quieres eliminar ${title}?`
     btnYes.addEventListener("click",()=> deletfilm(title))
     btnCancel.addEventListener("click",()=>{
         console.log("hola")
@@ -113,7 +117,7 @@ const deleteFilm = (e)=>{
     popup.appendChild(p)
     popup.appendChild(btnYes)
     popup.appendChild(btnCancel)
-    popup.appendChild(btnX)
+    //popup.appendChild(btnX)
     
     document.body.append(popup) 
     

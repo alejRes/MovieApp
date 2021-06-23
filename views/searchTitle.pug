@@ -14,9 +14,9 @@ html(lang='en')
     main#detailFilm
       div(id=film.Title)
         if film.imdbID
-          img.normal(id=film.imdbID src='../public/images/heartEmpty.svg' onClick=`addFavorite(id)` alt='heartEmpty')
+          img.normalFilm(id=film.imdbID src='../public/images/heartEmpty.svg' onClick=`addFavorite(id)` alt='heartEmpty')
         else  
-          img.normal(id=film.filmId  src='../public/images/heartEmpty.svg' onClick='addFavorite(id)' alt='heartEmpty')
+          img.normalFilm(id=film.filmId  src='../public/images/heartEmpty.svg' onClick='addFavorite(id)' alt='heartEmpty')
         section 
           h2=film.Title
         img(src=film.Poster)

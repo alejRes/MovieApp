@@ -8,27 +8,6 @@ html(lang="en")
         title Crea o Edita
     body 
         include header.pug
-<<<<<<< HEAD
-    main
-            form#formCreate(action="/createMovie", method="post")
-                label(for="title") Título
-                input#title(type="text", name="title", placeholder="Título")
-                label(for="year") Año
-                input#year(type="number", name="year", placeholder="Año")
-                label(for="director") Director
-                input#director(type="text", name="director", placeholder="Director")
-                label(for="actors") Reparto
-                input#actors(type="text", name="actors", placeholder="Reparto")
-                label(for="plot") Sinopsis
-                input#plot(type="textarea", name="plot", placeholder="Sinopsis")
-                label(for="genre") Género
-                input#genre(type="text", name="genre", placeholder="Género")
-                label(for="runtime") Duración
-                input#runtime(type="number", name="runtime", placeholder="Duración")
-                br
-                input#submit(type="submit", value="Crear Pelicula")
-                img(src="../public/images/claqueta.svg", alt="")
-=======
         main
             if data 
                 h1 Edita pelicula
@@ -43,13 +22,13 @@ html(lang="en")
                     input#poster(type="text", name="Poster", placeholder="Imagen" value=data.Poster)
                     input#imdbRating(type="number", name="imdbRating", placeholder="Puntuación" value=data.imdbRating)
                     input#awards(type="text", name="Awards", placeholder="Premios" value=data.Awards)
-                    input#language(type="text", name="Languag", placeholder="Idioma" value=data.Language)
+                    input#language(type="text", name="Language", placeholder="Idioma" value=data.Language)
                     input#country(type="text", name="Country", placeholder="País" value=data.Country)
 
-                    button#btnSU Actualizar
+                    button#btnSU(value = "update") Actualizar
             else
                 h1 Nueva película
-                form(action="/apiAdmin/createMovie", method="POST")
+                form#CrUpFilm(action="", method="")
                     input#title(type="text", name="Title", placeholder="Título")
                     input#year(type="number", name="Year", placeholder="Año")
                     input#runtime(type="number", name="Runtime", placeholder="Duración")
@@ -60,12 +39,10 @@ html(lang="en")
                     input#poster(type="text", name="Poster", placeholder="Imagen")
                     input#imdbRating(type="number", name="imdbRating", placeholder="Puntuación" v)
                     input#awards(type="text", name="Awards", placeholder="Premios")
-                    input#language(type="text", name="Languag", placeholder="Idioma" val)
+                    input#language(type="text", name="Language", placeholder="Idioma" val)
                     input#country(type="text", name="Country", placeholder="País")
                 
-                    input(type="submit", value="Crear Pelicula")
+                    button#btnSU(value="create") Crear película
             if message 
                 p=message
         script(src="../public/scripts/scriptAdmin.js" type="module") 
-
->>>>>>> develop

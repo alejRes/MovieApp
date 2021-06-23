@@ -2,8 +2,8 @@ const puppeteer = require("puppeteer");
 
 const scrapSensa = async(title) => {
   const browser = await puppeteer.launch({ 
-    headless: false,//OJO cambiar a TRUE cuando lo lance
-    slowMo: 30
+    headless: true,//OJO cambiar a TRUE cuando lo lance
+    slowMo: 20
   });
   const page = await browser.newPage();
   await page.goto(`https://www.sensacine.com`);
@@ -24,7 +24,7 @@ const scrapSensa = async(title) => {
   })
   return reviews
 } )
-  console.log(data);
+  return data;
 };
 
 // scrapSensa("avatar")
@@ -32,8 +32,8 @@ const scrapSensa = async(title) => {
 
 const scrapFilmAffinity = async(titulo) => {
   const browser = await puppeteer.launch({
-      headless: false,//OJO cambiar a TRUE cuando lo lance
-      slowMo: 30
+      headless: true,//OJO cambiar a TRUE cuando lo lance
+      slowMo: 20
   })
   const page = await browser.newPage();
   await page.goto("https://www.filmaffinity.com/");
@@ -53,9 +53,13 @@ const scrapFilmAffinity = async(titulo) => {
       reviews.push(div.innerText)
       
   })
+  /* console.log()
+  console.log(reviews) */
   return reviews
 } )
-  console.log(data);
+  return data;
 };
 
-scrapFilmAffinity("Titanic")
+
+module.exports ={scrapSensa, scrapFilmAffinity}
+// scrapFilmAffinity("Titanic")

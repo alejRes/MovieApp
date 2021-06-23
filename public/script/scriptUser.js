@@ -1,7 +1,8 @@
 const addFavorite = async (id)=>{
     let contain = document.getElementById(id).parentNode
     let img = document.getElementById(id)
-    console.log(img.alt)
+    console.log(img.parentNode)
+    console.log(img.alt, id)
     if(img.alt != 'heartEmpty'){
         contain.removeChild(img)
         let imgfull = document.createElement('img')
@@ -21,6 +22,11 @@ const addFavorite = async (id)=>{
         imgEmpty.setAttribute('onclick','addFavorite(id)')
         contain.appendChild(imgEmpty)
     }
+    if(window.location.pathname =='/favorites'){
+        if(img.alt == 'heartFull'){            
+            contain.remove()             
+        }  
+    }
     let favorite = {
         id: id,
         state: img.alt
@@ -33,5 +39,12 @@ const addFavorite = async (id)=>{
         },
         body: JSON.stringify(favorite)
     }
-    await fetch ('http://localhost:3000/favorites', options)
+    try {
+        let response = await fetch ('http://localhost:3000/favorites', options)
+        let result = await response.json()
+        window.location.assign(result.redirect)
+    } catch (error) {
+        console.log(error)
+    }
+    
 }

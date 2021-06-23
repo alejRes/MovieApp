@@ -18,7 +18,7 @@ html(lang='en')
           each val in completeFilms
             div(id=val.Title)
               if val.imdbID
-                img.normal(id=val.imdbID src='../public/images/heartEmpty.svg' onClick='addFavorite(id)' alt='heartEmpty')
+                img.normal(id=val.imdbID src='../public/images/heartEmpty.svg' onClick=`addFavorite(id)` alt='heartEmpty')
               else  
                 img.normal(id=val.filmId  src='../public/images/heartEmpty.svg' onClick='addFavorite(id)' alt='heartEmpty')
               //img(src=val.Poster)

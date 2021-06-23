@@ -13,9 +13,9 @@ html(lang='en')
           each val in myFavorites
             div(id=val.Title)
               if val.imdbID
-                img.normal(id=val.imdbID src='../public/images/heartFull.svg' onClick='addFavorite(id)' alt='heartEmpty')
+                img.normal(id=val.imdbID src='../public/images/heartFull.svg' onClick='addFavorite(id)' alt='heartFull')
               else  
-                img.nomral(id=val.filmId  src='../public/images/heartFull.svg' onClick='addFavorite(id)' alt='heartEmpty')
+                img.normal(id=val.filmId  src='../public/images/heartFull.svg' onClick='addFavorite(id)' alt='heartFull')
               img(src=val.Poster)
               section#cardItems
                 p Año: 
@@ -27,7 +27,7 @@ html(lang='en')
               h3 #{val.Title}  
               p Dirección: 
                 span #{val.Director}
-      else 
+      if state
         h1 No tienes favoritos
 
   script(src="../public/script/scriptuser.js") 

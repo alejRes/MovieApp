@@ -6,7 +6,7 @@ const apiAdmin = {
     postCreateMovie: async (req, res) => {
 
         const film = new Film(req.body)
-        
+        console.log("peli para guardar", film)
         const existInOmdb = await fetch(`http://www.omdbapi.com/?apikey=${process.env.API_KEY}&t=${film.Title}`);
         const filmOmd = await existInOmdb.json()
 
@@ -15,11 +15,12 @@ const apiAdmin = {
             try {
                 film.save((err, data) => {
                     if (err) {
+                        console.log("cual es el error en save?", err)
                         console.log(data)
-                        res.status(400).render('createmovie')
+                        res.json({redirect:false})
                     } else {
                         console.log(data)
-                        res.redirect(307,'/movies')
+                        res.json({redirect:"/movies"})
                     }
                 })
             } catch (error) {
@@ -53,6 +54,7 @@ const apiAdmin = {
 
         try {
             let result = await Film.findOne({filmId:0})
+            console.log('*********2********', result)
             console.log(result)
             if(data.Title.toLowerCase().replace(/ \s+/g, "")==result.Title.toLowerCase().replace(/ \s+/g, "")){
                 

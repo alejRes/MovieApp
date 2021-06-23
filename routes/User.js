@@ -4,7 +4,7 @@ const admin = require ("../controllers/Admin")
 //const auth = require ("./controllers/auth")
 
 // router.get('/', user.home)
-router.get('/dashboard', user.dashboard)
+// router.get('/dashboard', user.dashboard)
 router.get('/search', user.search)
 router.post('/search', user.searchQuery)
 router.get('/search/:title', user.searchTitle)

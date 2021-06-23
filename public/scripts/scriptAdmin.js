@@ -1,19 +1,20 @@
-import { postUpdateFilm } from './utils/utilsAdmin.js'
+import { postUpdateFilm, postCreateFilm } from './utils/utilsAdmin.js'
 
-if (window.location.pathname != "/createMovie") {
+
     document.getElementById('btnSU').addEventListener('click', async (e) => {
         console.log('boton pulsado')
         e.preventDefault()
+        console.log(e.target.value)
         let id = window.location.pathname.split("/")[2]
-        let btnvalue;
+        let btnvalue =e.target.value;
         const form = document.querySelector('#CrUpFilm').elements
         const peli = {}
         for (let input of form) {
             input.type != "button" ? peli[input.name] = input.value : btnvalue = input.value
         }
         console.log(peli)
-        postUpdateFilm(peli, id)
-        /*else 
-        postCreateFilm(peli) */
+        if(btnvalue=="update")
+            postUpdateFilm(peli, id)
+        else 
+            postCreateFilm(peli)    
     })
-}

@@ -5,12 +5,13 @@ html(lang="en")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         link(rel='stylesheet' href='../public/style.css')
+        link(href="../public/images/logo.png",rel="icon", type="image/png")
         title Crea o Edita
     body 
         include header.pug
         main
             if data 
-                h2 Edita una pelicula
+                h2.titulos Edita una pelicula
                 form#formAdmin(action="", method="")
                     input#campos(type="text", name="Title", placeholder="Título" value=data.Title readonly)
                     input#campos(type="number", name="Year", placeholder="Año" value=data.Year)
@@ -27,7 +28,7 @@ html(lang="en")
                     br
                     button#btnSU Actualizar
             else
-                h2 Crea una película
+                h2.titulos Crea una película
                 form#formAdmin(action="/apiAdmin/createMovie", method="POST")
                     input#campos(type="text", name="Title", placeholder="Título" required)
                     input#campos(type="number", name="Year", placeholder="Año" required)

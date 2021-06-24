@@ -5,8 +5,9 @@ html(lang='en')
     meta(http-equiv='X-UA-Compatible' content='IE=edge')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
     link(rel='stylesheet' href='../public/style.css')
+    link(href="../public/images/logo.png",rel="icon", type="image/png")
     title Película en detalle
-  body
+  body.body
     include header.pug
     form#form(method='POST', action='/search')
         input#searchText(type='text', name='filmSearch', placeholder='Busca tu película')
@@ -18,7 +19,7 @@ html(lang='en')
         else  
           img.normalFilm(id=film.filmId  src='../public/images/heartEmpty.svg' onClick='addFavorite(id)' alt='heartEmpty')
         section 
-          h2=film.Title
+          h2.titulos=film.Title
         img(src=film.Poster)
           
         section.cardItems

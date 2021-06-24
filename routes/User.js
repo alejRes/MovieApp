@@ -5,7 +5,7 @@ const {isAuth,claims} = require('../middlewares/Auth');
 //const auth = require ("./controllers/auth")
 
 // router.get('/', user.home)
-// router.get('/dashboard', user.dashboard)
+router.get('/dashboard', user.dashboard)
 router.get('/search', claims, user.search)
 router.post('/search', user.searchQuery)
 router.get('/search/:title', claims, user.searchTitle)

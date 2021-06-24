@@ -6,18 +6,20 @@ head
   link(href='https://fonts.googleapis.com/css?family=Open+Sans:300', rel='stylesheet', type='text/css')
   link(href="../public/images/logo.png",rel="icon", type="image/png") 
   
-body.body   
-include header
-.container
-  form.homeForm(action='/signup', method='post')
-    label(for='user') User
-    input.ghost-input(name='username', type='text', placeholder='Usuario', required='')
-    label(for='password') Password
-    input.ghost-input(name='password', type='password', placeholder='Password', required='')
-    label(for='password') Password
-    input.ghost-input(name='password2', type='password', placeholder='Introduce de nuevo el Password', required='')
+body.body
+  div#logo
+        img(src="../public/images/logo.png", alt="logo" class="logo")   
 
-    input.ghost-button(type='submit',value='signup')
+.container2
+  form.homeForm2(action='/signup', method='post')
+    label(for='user') User
+    input.ghost-input2(name='username', type='text', placeholder='Usuario', required='')
+    label(for='password') Password
+    input.ghost-input2(name='password', type='password', placeholder='Password', required='')
+    label(for='password') Password
+    input.ghost-input2(name='password2', type='password', placeholder='Introduce de nuevo el Password', required='')
+
+    input.ghost-button2(type='submit',value='signup')
     
   p.volver
     a.inicio(href='/') Inicio

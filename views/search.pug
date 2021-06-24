@@ -5,11 +5,16 @@ html(lang='en')
     meta(http-equiv='X-UA-Compatible' content='IE=edge')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
     link(rel='stylesheet' href='../public/style.css')
+    link(href="../public/images/logo.png",rel="icon", type="image/png")
     title Buscador de películas
-  body
+  body.body
     include header.pug
 
+    div#logo2
+        img(src="../public/images/logo.png", alt="logo" class="logo")
+
     main#searchMovies
+      h2.busca Busca tu película
       form#form(method='POST', action='/search')
         input#searchText(type='text', name='filmSearch', placeholder='Busca tu película')
         input#searchButton(type='submit', name='searchButton', value="Buscar")
@@ -44,7 +49,7 @@ html(lang='en')
                           
       else
         
-          img.normal#imgLogo(src='../public/images/logo.png')
+          //img.normal#imgLogo(src='../public/images/logo.png')
           //img.normal(src='../public/images/cine.svg')
       
 
